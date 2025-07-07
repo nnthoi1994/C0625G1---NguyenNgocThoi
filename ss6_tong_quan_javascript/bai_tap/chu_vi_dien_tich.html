@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chu_vi_dien_tich</title>
+</head>
+<body>
+<h2>AUTO TÍNH DIỆN TÍCH VÀ CHU VI</h2>
+<input id="length" placeholder="Nhập chiều dài">
+<input id="width" placeholder="Nhập chiều rộng">
+<Button  onclick="Tinh()">Tính</Button>
+<p id="chuvi"></p>
+<p id="dientich"></p>
+<script>
+  function Tinh() {
+    let dai = parseFloat(document.getElementById("length").value);
+    let rong = parseFloat(document.getElementById("width").value);
+    let chuvi = (dai + rong)*2;
+    let dientich = dai * rong ;
+    document.getElementById("chuvi").innerText = "Chu vi : " + chuvi ;
+    document.getElementById("dientich").innerText ="Diện tích : " + dientich ;
+  }
+</script>
+
+</body>
+</html>
