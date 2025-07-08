@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<label for="amount">Vui lòng nhập số tiền vào ô bên dưới</label><br>
+<input type="text" id="amount">
+<label for="from"></label><br>
+<label for="from">Đơn vị tiền hiện tại:</label>
+<select name="From_Current" id="from">
+  <option value="1">USD</option>
+<option value="26000">VNĐ</option>
+  <label for="from"></label>
+</select><br>
+<label for="to">Đơn vị tiền cần quy đổi: </label>
+  <select name="To_Current" id="to">
+    <option value="1">USD</option>
+    <option value="26000">VNĐ</option>
+    <label for="from"></label>
+   </select><br>
+<button onclick="fConvert()">Chuyển đổi</button>
+<p id="result"></p>
+<script>
+function fConvert() {
+  let fromSelect = document.getElementById("from");
+  let toSelect = document.getElementById("to");
+  let from = parseFloat(fromSelect.value);
+  let to = parseFloat(toSelect.value);
+  let toUnit = toSelect.options[toSelect.selectedIndex].text;
+  let amount = parseFloat(document.getElementById("amount").value);
+  let Convert = amount*to/from
+  document.getElementById("result").innerText = "Kết quả: " + Convert + " " +toUnit;
+
+}
+</script>
+</body>
+</html>

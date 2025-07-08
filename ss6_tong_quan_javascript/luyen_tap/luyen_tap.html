@@ -5,16 +5,13 @@
 </head>
 <body>
 
+
 <script>
-  // Hỏi tên bằng prompt
-  let ten = prompt("Bạn tên gì nè?");
-
-  // In ra console
-  console.log("Xin chào " + ten + " nha!");
-
-  // Hiển thị ra trangk
-  document.write("<h2>Xin chào, " + ten + "!</h2>");,,
+  var dai = +prompt("Nhập chiều dài");
+  var rong = +prompt("Nhập chiều rộng");
+  var Chu_vi = (dai + rong)*2;
+  var Dien_tich = dai*rong
+  alert("Chu vi là:" + Chu_vi + "và diện tích là: " + Dien_tich)
 </script>
-
 </body>
 </html>
