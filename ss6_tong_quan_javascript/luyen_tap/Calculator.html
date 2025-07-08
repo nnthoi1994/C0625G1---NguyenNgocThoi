@@ -5,16 +5,37 @@
   <title>Máy tính</title>
 </head>
 <body>
-<input type="number" id="firt">
+<input type="number" id="first">
 <input type="number" id="second"><br><br>
 <button onclick="add()">Addition</button>
 <button onclick="sub()">Subtraction</button>
 <button onclick="mul()">Multiplication</button>
-<button onclick="di()">Division</button>
+<button onclick="div()">Division</button>
 <p id="result"></p>
 <script>
   function add() {
-let firt = document.getElementById("")
+    let first = parseFloat(document.getElementById("first").value);
+    let second = parseFloat(document.getElementById("second").value);
+    let result = second + first;
+    document.getElementById("result").innerText = "Kết quả là: " + result;
+    }
+  function sub() {
+    let first = parseFloat(document.getElementById("first").value);
+    let second = parseFloat(document.getElementById("second").value);
+    let result = second - first;
+    document.getElementById("result").innerText = "Kết quả là: " + result;
+  }
+  function mul() {
+    let first = parseFloat(document.getElementById("first").value);
+    let second = parseFloat(document.getElementById("second").value);
+    let result = second * first;
+    document.getElementById("result").innerText = "Kết quả là: " + result;
+  }
+  function div() {
+    let first = parseFloat(document.getElementById("first").value);
+    let second = parseFloat(document.getElementById("second").value);
+    let result = second / first;
+    document.getElementById("result").innerText = "Kết quả là: " + result;
   }
 </script>
 </body>
