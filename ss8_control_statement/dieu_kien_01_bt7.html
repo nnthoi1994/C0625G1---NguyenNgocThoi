@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính cước điện thoại</title>
+</head>
+<body>
+<h2>Bảng tính cước phí điện thoại</h2>
+<p>-Cước phí gọi nội mạng: 1000đ/phút</p>
+<p>-Cước phí gọi ngoại mạng: 2000đ/phút</p>
+<p>-Cước phí tin nhắn nội mạng: 250đ/1 tin nhắn</p>
+<p>-Cước phí tin nắn nội mạng: 500đ/tin nhắn</p>
+</body>
+<script>
+
+    let onnet = +prompt("Nhập phút nội mạng")
+    let offnet = +prompt("Nhập phút ngoại mạng")
+    let onnetsms = +prompt("Nhập số tin nhắn sms nội mạng")
+    let offnetsms = +prompt("Nhập số tin nhắn ngoại mạng")
+    let result = onnet * 1000 + offnet * 2000 + onnetsms * 250 + offnetsms * 500
+    alert(result)
+
+</script>
+</html>
