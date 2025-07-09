@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator basic</title>
+</head>
+<body>
+<input type="text" id="view"><br>
+
+<button id="1" value="1" onclick="nhap(this.value)">1</button>
+<button id="2" value="2" onclick="nhap(this.value)">2</button>
+<button id="3" value="3" onclick="nhap(this.value)">3</button>
+<button value="+" onclick="nhap(this.value)">+</button>
+<br>
+<button id="4" value="4" onclick="nhap(this.value)">4</button>
+<button id="5" value="5" onclick="nhap(this.value)">5</button>
+<button id="6" value="6" onclick="nhap(this.value)">6</button>
+<button value="-" onclick="nhap(this.value)">-</button>
+<br>
+<button id="7" value="7" onclick="nhap(this.value)">7</button>
+<button id="8" value="8" onclick="nhap(this.value)">8</button>
+<button id="9" value="9" onclick="nhap(this.value)">9</button>
+<button value="*" onclick="nhap(this.value)">*</button>
+<br>
+<button  onclick="xoa()">C</button>
+<button  value="0" onclick="nhap(this.value)">0</button>
+<button  onclick="result()">=</button>
+<button value="/" onclick="nhap(this.value)">/</button>
+<script>
+  let views = document.getElementById("view");
+  function nhap(value) {
+    views.value +=value;
+  }
+  function result() {
+    let result = eval(views.value);
+    views.value = result;
+  }
+  function xoa() {
+    views.value="";
+  }
+</script>
+</body>
+</html>
