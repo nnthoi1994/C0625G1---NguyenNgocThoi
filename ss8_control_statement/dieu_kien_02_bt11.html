@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính giá điện</title>
+</head>
+<body>
+<table border="1" style="width: 1000px; color: blue">
+  <tr>
+    <th>Bậc</th>
+    <th>Thu nhập tính thuế (Triệu VNĐ) </th>
+    <th>Thuế suất (2025)</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>≤ 5</td>
+    <td>5%</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>> 5 – ≤ 10</td>
+    <td>10%</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>> 10 – ≤ 18</td>
+    <td>15%</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>> 18</td>
+    <td>20%</td>
+  </tr>
+</table>
+<button onclick="checkTax()">Tính thuế thu nhập</button>
+<p id="result"></p>
+<script>
+  function checkTax() {
+    let numSalary = +prompt("Nhập thu nhập (Triệu VNĐ của bạn tại đây")
+    if (numSalary >= 18) {
+      let result = 5 * 0.25 + 5*0.1 + 5*0.15 + (numSalary - 18) * 0.2
+    } else if (numSalary >= 10) {
+      result = 5 * 0.25 + 5*0.1 + (numSalary - 10) * 0.15
+    } else if (numSalary >= 5) {
+      result = 5 * 0.25 + (numSalary - 5) * 0.1
+    } else {
+      result = numSalary * 0.25
+    }
+    document.getElementById("result").innerText = "Thuế thu nhập của bạn là: "+ (result*1000000).toLocaleString('vi-VN') + " VND"
+  }
+</script>
+</body>
+</html>

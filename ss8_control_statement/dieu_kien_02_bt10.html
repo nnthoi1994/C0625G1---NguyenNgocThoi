@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính giá điện</title>
+</head>
+<body>
+<table border="1" style="width: 1000px; color: blue">
+  <tr>
+  <th>Bậc</th>
+  <th>Luỹ kế</th>
+  <th>Đơn giá (2025)</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>0-50</td>
+    <td>1.984</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>51-100</td>
+    <td>2.050</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>101-200</td>
+    <td>2.380</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>>200</td>
+    <td>2.998</td>
+  </tr>
+</table>
+<button onclick="checkElec()">Tính giá điện</button>
+<p id="result"></p>
+<script>
+  function checkElec() {
+    let result=0;
+    let numElec = +prompt("Nhập số điện của bạn tại đây");
+    if (numElec >= 200) {
+      result = 50 * 1984 + 2050 * 50 + 2380 * 100 + (numElec - 200) * 2998;
+    } else if (numElec >= 100) {
+      result = 50 * 1984 + 2050 * 50 + (numElec - 100) * 2380;
+    } else if (numElec >= 50) {
+       result = 50 * 1984 + (numElec - 50) * 2050;
+    } else {
+      result = numElec  * 1984;
+    }
+    document.getElementById("result").innerText = "Giá điện của bạn là: "+ result.toLocaleString('vi-VN') + " VND"
+  }
+</script>
+</body>
+</html>

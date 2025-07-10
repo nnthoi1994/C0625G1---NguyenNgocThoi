@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính hoa hồng/doanh thu bán hàng</title>
+</head>
+<body>
+<script>
+  let sale = prompt("Nhập doanh thu bán hàng (Đơn vị: Triệu VNĐ)");
+  if (sale>=1000) {
+    alert(`Hoa hồng của bạn là ${sale*0.05*1000000}  VNĐ`);
+  } else if (sale>=500) {
+    alert(`Hoa hồng của bạn là ${sale * 0.03 * 1000000}  VNĐ`);
+  } else if (sale>=300) {
+    alert(`Hoa hồng của bạn là ${sale * 0.01 * 1000000}  VNĐ`);
+  } else alert("Bạn chưa nhận được hoa hồng do chưa đạt doanh số");
+
+</script>
+</body>
+</html>
