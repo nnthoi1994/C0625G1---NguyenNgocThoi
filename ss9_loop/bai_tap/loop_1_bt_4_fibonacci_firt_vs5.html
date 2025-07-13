@@ -11,18 +11,18 @@ let n2 = 2;
 let ni = 3;
 let countFib = 4;
 // document.write("0<br>1<br>1<br>2<br>");
-while(countFib<20){
-  if(ni==(n1+n2)) {
+while (countFib < 20) {
+  if (ni == (n1 + n2)) {
     countFib++;
     n1 = n2;
     n2 = ni;
     // document.write(ni+"<br>");
   }
-  if(ni%5==0){
-    alert("Số fibonacci đầu tiên chia hết cho 5 là: "+ ni);
-    countFib=20;
+  if (ni % 5 == 0) {
+    alert('Số fibonacci đầu tiên chia hết cho 5 là: ' + ni);
+    countFib = 20;
   } else
-  ni++;
+    ni++;
 
 }
 </script>

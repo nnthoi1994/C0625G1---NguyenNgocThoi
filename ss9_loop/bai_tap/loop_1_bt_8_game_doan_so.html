@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game đoán số</title>
+</head>
+<body>
+<button onclick="nStart()">Bắt đầu</button>
+<script>
+  function nStart() {
+    let nMax = +prompt('Nhập số lớn nhất cho game');
+    let nUser = +prompt('Nhập số dự đoán của bạn');
+    let random = Math.floor(Math.random() * nMax + 1);
+    alert(random)
+    for (let i = 0; i < 4; i++) {
+      if (nUser > random) {
+        alert('Số bạn dự đoán lớn hơn con số chính xác, hãy dự đoán lại nào');
+        nUser = +prompt('Nhập số dự đoán của bạn');
+      } else if (nUser < random) {
+        alert('Số bạn dự đoán nhỏ hơn con số chính xác, hãy dự đoán lại nào');
+        nUser = +prompt('Nhập số dự đoán của bạn');
+      } else {
+        alert('Chúc mừng bạn đã đoán đúng');
+        break;
+      }
+      // let nUser = +prompt('Nhập số dự đoán của bạn');
+      if (i==3) {
+        alert("Hết lượt")
+      }
+    }
+  }
+</script>
+</body>
+</html>
