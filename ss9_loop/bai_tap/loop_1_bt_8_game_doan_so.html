@@ -11,7 +11,7 @@
     let nMax = +prompt('Nhập số lớn nhất cho game');
     let nUser = +prompt('Nhập số dự đoán của bạn');
     let random = Math.floor(Math.random() * nMax + 1);
-    alert(random)
+    alert(random);
     for (let i = 0; i < 4; i++) {
       if (nUser > random) {
         alert('Số bạn dự đoán lớn hơn con số chính xác, hãy dự đoán lại nào');
@@ -24,8 +24,8 @@
         break;
       }
       // let nUser = +prompt('Nhập số dự đoán của bạn');
-      if (i==3) {
-        alert("Hết lượt")
+      if (i == 3) {
+        alert('Hết lượt');
       }
     }
   }
