@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dãy 20 số fibonacci đầu tiên</title>
+</head>
+<body>
+<script> //0,1,1,2,3,5,8,13,21....
+  let n1 = 0;
+  let n2 = 1;
+  let ni = 1;
+  let countFib = 2;
+document.write("0<br>1<br>");
+while(countFib<20){
+    if(ni==(n1+n2)) {
+      countFib++;
+      n1 = n2;
+      n2 = ni;
+      document.write(ni+"<br>");
+    }
+    ni++;
+}
+</script>
+</body>
+</html>

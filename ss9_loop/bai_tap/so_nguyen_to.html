@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Số nguyên tố</title>
+</head>
+<body>
+<script>
+  let n = +prompt("Nhập số lượng số nguyên tố cần lấy");
+  let nSNT = 0; //số lượng số nguyên tố tìm thấy
+  let SNT = 2; //Kiểm tra SNT hiện tại
+  while (nSNT<n){
+    let count = 0; //đếm;
+    SNT++;
+    for (let i = 2; i < SNT; i++) {
+      if (SNT % i == 0) { //kiểm các số SNT chia hết
+        count++;
+      }
+    }
+    if (count == 0) { //Nếu không có số nào chia hết thì nSNT cộng thêm 1
+      nSNT++;
+      document.write(SNT+ "<br>");
+    }
+  }
+</script>
+</body>
+</html>
