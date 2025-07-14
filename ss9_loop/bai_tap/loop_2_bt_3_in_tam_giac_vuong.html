@@ -8,6 +8,7 @@
 <pre id="result"></pre>
 <pre id="result2"></pre>
 <script>
+  //Tam giác vuông góc vuông bên phải
   for (let i = 1; i < 7; i++) {
     for (let j = 1; j < i; j++) {
       document.write('*');
@@ -15,8 +16,7 @@
     document.write('<br>');
   }
 
-  document.write('<br>');
-
+  //Tam giác vuông góc vuông bên phải lộn ngươc
   for (let i = 1; i < 6; i++) {
     for (let j = 6; j > i; j--) {
       document.write('*');
@@ -24,8 +24,7 @@
     document.write('<br>');
   }
 
-  document.write('<br>');
-
+  //Tam giác vuông góc vuông bên trái
   let result = '';
   for (let i = 1; i < 6; i++) {
     for (let j = 1; j < 6 - i; j++) {
@@ -38,6 +37,7 @@
   }
   document.getElementById('result').innerText = result;
 
+  //Tam giác vuông góc vuông bên trái lộn ngược
   let result2 = '';
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < i; j++) {
@@ -49,8 +49,6 @@
     result2 += '\n';
   }
   document.getElementById('result2').innerText = result2;
-
-
 </script>
 </body>
 </html>
