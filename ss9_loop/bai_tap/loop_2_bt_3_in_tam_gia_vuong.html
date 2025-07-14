@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>In tam giác vuông</title>
+</head>
+<body>
+<pre id="result"></pre>
+<pre id="result2"></pre>
+<script>
+  for (let i = 1; i < 7; i++) {
+    for (let j = 1; j < i; j++) {
+      document.write('*');
+    }
+    document.write('<br>');
+  }
+
+  document.write('<br>');
+
+  for (let i = 1; i < 6; i++) {
+    for (let j = 6; j > i; j--) {
+      document.write('*');
+    }
+    document.write('<br>');
+  }
+
+  document.write('<br>');
+
+  let result = '';
+  for (let i = 1; i < 6; i++) {
+    for (let j = 1; j < 6 - i; j++) {
+      result += ' ';
+    }
+    for (let k = 1; k <= i; k++) {
+      result += '*';
+    }
+    result += '\n';
+  }
+  document.getElementById('result').innerText = result;
+
+  let result2 = '';
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < i; j++) {
+      result2 += ' ';
+    }
+    for (let k = 1; k < 6 - i; k++) {
+      result2 += '*';
+    }
+    result2 += '\n';
+  }
+  document.getElementById('result2').innerText = result2;
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>In dãy Fibonacci</title>
+</head>
+<body>
+<script>
+  let n1 = 0;
+  let n2 = 1;
+  let ni = +prompt('Bạn muốn dãy Fibonacci có mấy số (Tối thiểu 3 số)');
+  let countFibo = 0;
+  document.write(0 + '<br>' + 1 + '<br>' + 1 + '<br>');
+  for (let n3 = n1 + n2; countFibo < (ni - 3); n3++) {
+    if (n3 = n1 + n2) {
+      n1 = n2;
+      n2 = n3;
+      n3 = n1 + n2;
+      document.write(n3 + '<br>');
+      countFibo++;
+    }
+  }
+</script>
+
+</body>
+</html>

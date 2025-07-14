@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chọn Menu</title>
+</head>
+<body>
+<script>
+  let display = '';
+  let cafe = 0;
+  let cacao = 0;
+  let cam = 0;
+  let tong = 0;
+  let finish = true;
+  while (finish) {
+    let display = '';
+    if (cafe > 0) {
+      display += 'Tiền cafe: ' + cafe + '\n';
+    }
+    if (cacao > 0) {
+      display += 'Tiền cacao: ' + cacao + '\n';
+    }
+    if (cam > 0) {
+      display += 'Tiền cam: ' + cam + '\n';
+    }
+    let menu = +prompt('----Menu---- \n' +
+      'Hãy nhập số để chọn đồ uống\n' +
+      '1.Cafe: 10k\n' +
+      '2.Ca cao: 15k\n' +
+      '3.Nước cam: 20k\n' +
+      '4. Kết thúc\n' +
+      '-----Danh sách đã chọn-----\n' + display + '-------------Tổng tiền: ' + tong);
+    switch (menu) {
+      case 1:
+        tong += 10;
+        cafe += 10;
+        break;
+      case 2:
+        tong += 15;
+        cacao += 15;
+        break;
+      case 3:
+        tong += 20;
+        cam += 20;
+        break;
+      case 4:
+        let conf = confirm('Bạn có muốn kết thúc chọn món không');
+        if (conf) {
+          alert('Hoàn thành chọn món');
+          finish = false;
+        }
+      default:
+        alert('Chọn món số 1-4');
+    }
+  }
+</script>
+</body>
+</html>

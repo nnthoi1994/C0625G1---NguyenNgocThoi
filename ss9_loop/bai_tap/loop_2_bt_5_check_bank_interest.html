@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính lãi vay ngân hàng</title>
+</head>
+<body>
+<script> // Vay 100 triệu trong 12 tháng, 1 tháng 0.6%
+let money = +prompt('Bạn cần gửi ngân hàng bao nhiêu tiền'); //Số tiền vay
+let month = +prompt('Bạn cần gửi trong bao nhiêu tháng'); //Số tháng vay
+let interest = +prompt('Nhập lãi suất mỗi tháng mà ngân hàng bạn gửi (%)'); //Lãi suất
+let sum = money; //Tổng tiền vay và lãi
+let mInterest = 0; //Tiền lãi
+
+for (let i = 1; i <= month; i++) {
+  mInterest = sum * (interest / 100);
+  sum += mInterest;
+  document.write('Lãi tháng ' + i + ': ' + mInterest.toLocaleString('vi-VN') + '-------Tổng lãi cộng vốn: ' + sum.toLocaleString('vi-VN') + '<br>');
+}
+alert('Tổng số tiền lãi ngân hàng bạn nhận được là: ' + (sum - money).toLocaleString('vi-VN')
+);
+</script>
+</body>
+</html>

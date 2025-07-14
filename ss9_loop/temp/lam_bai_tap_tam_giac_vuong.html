@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tam giác vuông phải</title>
+</head>
+<body>
+<pre id="output"></pre>
+
+<script>
+  let output = '';
+  let n = 5; // độ dài cạnh góc vuông
+
+  for (let i = 1; i <= n; i++) {
+    // In khoảng trắng (n - i) lần
+    for (let j = 1; j <= n - i; j++) {
+      output += ' ';
+    }
+    // In dấu * i lần
+    for (let k = 1; k <= i; k++) {
+      output += '*';
+    }
+    output += '\n';
+  }
+
+  document.getElementById('output').innerText = output;
+</script>
+</body>
+</html>

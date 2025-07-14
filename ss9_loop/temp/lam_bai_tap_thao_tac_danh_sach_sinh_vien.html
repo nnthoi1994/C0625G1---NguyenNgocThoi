@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý sinh viên</title>
+</head>
+<body>
+<script>
+  let flag = true;
+  while (flag) {
+    var selector = +prompt('----Quản lý sinh viên------- \n ' +
+      '1. Hiển thị danh sách sinh viên \n ' +
+      '2.Thêm mới sinh viên \n ' +
+      '3. Xóa sinh viên \n ' +
+      '4.Kết thúc chương trình');
+
+    switch (selector) {
+      case 1:
+        alert('Hiển thị danh sách sinh viên');
+        break;
+      case 2:
+        alert('Thêm mới sinh viên');
+        break;
+      case 3:
+        alert('Xóa sinh viên');
+        break;
+      case 4:
+        let conf = confirm('Bạn có muốn thoát không');
+        if (conf) {
+          alert('Kết thúc chương trình');
+          flag = false;
+        }
+
+        break;
+    }
+  }
+</script>
+"
+</body>
+</html>
