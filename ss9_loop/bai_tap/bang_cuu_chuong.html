@@ -6,16 +6,16 @@
 </head>
 <body>
 <script>
-let tabMul = "<table border='2' width='1000' cellpadding='3' cellspacing='1'>"
-for (i=1; i<=9; i++){
-  tabMul = tabMul + "<tr>";
-  for (j=2; j<=9; j++){
-    tabMul = tabMul + "<td>" +j + "*" + i +"=" + i*j + "</td>";
+  let tabMul = '<table border=\'2\' width=\'1000\' cellpadding=\'3\' cellspacing=\'1\'>';
+  for (i = 1; i <= 9; i++) {
+    tabMul = tabMul + '<tr>';
+    for (j = 2; j <= 9; j++) {
+      tabMul = tabMul + '<td>' + j + '*' + i + '=' + i * j + '</td>';
+    }
+    tabMul = tabMul + '</tr>';
   }
-  tabMul  = tabMul + "</tr>";
-}
-tabMul = tabMul + "</table>";
-document.write(tabMul);
+  tabMul = tabMul + '</table>';
+  document.write(tabMul);
 </script>
 </body>
 </html>

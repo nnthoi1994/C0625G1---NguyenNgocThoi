@@ -6,10 +6,10 @@
 </head>
 <body>
 <script>
-  let n = +prompt("Nhập số lượng số nguyên tố cần lấy");
+  let n = +prompt('Nhập số lượng số nguyên tố cần lấy');
   let nSNT = 0; //số lượng số nguyên tố tìm thấy
   let SNT = 2; //Kiểm tra SNT hiện tại
-  while (nSNT<n){
+  while (nSNT < n) {
     let count = 0; //đếm;
     SNT++;
     for (let i = 2; i < SNT; i++) {
@@ -19,7 +19,7 @@
     }
     if (count == 0) { //Nếu không có số nào chia hết thì nSNT cộng thêm 1
       nSNT++;
-      document.write(SNT+ "<br>");
+      document.write(SNT + '<br>');
     }
   }
 </script>
