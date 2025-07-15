@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm chữ cái nguyên âm trong chuỗi</title>
+</head>
+<body>
+<script>
+  let text = prompt('Nhập chuỗi bạn cần đếm số chữ cái nguyên âm');
+  let nChar = 0; //Số lượng chữ cái nguyên âm
+  let nguyenam = 'ueoai';
+  for (let i = 0; i < text.length; i++) {
+    if (nguyenam.includes(text[i])) {
+      nChar++;
+    }
+  }
+  alert(nChar);
+</script>
+</body>
+</html>

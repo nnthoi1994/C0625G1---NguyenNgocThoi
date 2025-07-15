@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chèn dấu - giữa các số chẵn trong chuỗi</title>
+</head>
+<body>
+<script> //043526 =>> 0-435-2-6
+let nUser = prompt('Nhập chuỗi số cần phân tách');
+let arrNum = nUser.split('').map(Number);
+for (let i = 1; i < arrNum.length; i++) {
+  if (arrNum[i] % 2 == 0) {
+    arrNum[i] = '-' + arrNum[i];
+  }
+}
+arrNum = arrNum.join('');
+document.write(arrNum);
+
+
+</script>
+</body>
+</html>

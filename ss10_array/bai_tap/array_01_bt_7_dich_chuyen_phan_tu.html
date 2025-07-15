@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xóa phần tử V và dịch chuyển mảng</title>
+</head>
+<body>
+<script>
+  let arr = [1, 2, 3, 4, 5, 6];
+  let v = prompt('Nhập giá trị của v');
+  if (arr.indexOf(v) > 0) {
+    alert('có v trong mảng');
+    let i = arr.indexOf(v);
+    arr.splice(i, 1);
+    arr.push('0');
+    alert('Giá trị mảng sau khi xóa v và thêm 0 vào vị trí cuối cùng: ' + arr);
+  } else alert('không có v trong mảng');
+</script>
+</body>
+</html>

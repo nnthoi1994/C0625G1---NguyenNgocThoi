@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển chữ hoa sang thường và ngược lại</title>
+</head>
+<body>
+<script>
+  let input = prompt('Hãy nhập đoạn văn bản cần chuyển hoa sang thường và ngược lại');
+  let output = '';
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === input[i].toLowerCase()) {
+      output += input[i].toUpperCase();
+    } else {
+      output += input[i].toLowerCase();
+    }
+  }
+  document.write(output);
+</script>
+</body>
+</html>
