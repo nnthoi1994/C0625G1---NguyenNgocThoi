@@ -8,12 +8,20 @@
 <script>
   let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let b = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+<<<<<<< HEAD
   let c = new Array(20)
   for(let i = 0; i< a.length; i++){
     c = b .push(b[i])
+=======
+  let c = [];
+  for (let i = 0; i < a.length; i++) {
+    c.push(a[i]);
+>>>>>>> a0423fba36b7382841a9bda546a8ebffc6628705
   }
-  alert(c)
-
+  for (let i = 0; i < a.length; i++) {
+    c.push(b[i]);
+  }
+  alert(c);
 </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Từ điển</title>
+</head>
+<body>
+<input type="text" id="nhap" placeholder="Nhập từ tiếng anh cần dịch">
+<button onclick="dich()">Dịch</button>
+<script>
+  function dich() {
+    let vn = ['Xin chào', 'tôi', 'học', 'mảng'];
+    let en = ['hello', 'i', 'learn', 'array'];
+    let input = document.getElementById('nhap').value.toLowerCase();
+    if (en.indexOf(input) !== -1) {
+      alert(vn[en.indexOf(input)]);
+    } else {
+      alert('Không tìm thấy');
+    }
+  }
+</script>
+</body>
+</html>
