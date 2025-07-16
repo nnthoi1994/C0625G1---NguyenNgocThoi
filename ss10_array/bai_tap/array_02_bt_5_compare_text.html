@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>So sánh 2 chuỗi xem có giống nhau không</title>
+</head>
+<body>
+<script>
+  let text1 = prompt('Nhập chuỗi 1 cần so sánh');
+  let text2 = prompt('Nhập chuỗi 2 cần so sánh');
+  let charSame = 0;
+  if (text1.length != text2.length) {
+    alert('2 chuỗi khác nhau');
+  } else {
+    for (let i = 0; i < text1.length; i++) {
+      if (text1[i] === text2[i]) {
+        charSame++;
+      } else {
+        alert('2 chuỗi khác nhau');
+      }
+    }
+    if (charSame = text1.length) {
+      alert('Giống nhau');
+    }
+  }
+
+</script>
+</body>
+</html>

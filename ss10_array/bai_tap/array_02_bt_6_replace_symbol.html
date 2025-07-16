@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thay thế kí tự - trong mảng thành _</title>
+</head>
+<body>
+<script>
+  let arr = ['1', '$', '@', '_', '-', '+', '(', '_', '-'];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '-') {
+      arr[i] = '_';
+    }
+  }
+  alert(arr);
+</script>
+</body>
+</html>
