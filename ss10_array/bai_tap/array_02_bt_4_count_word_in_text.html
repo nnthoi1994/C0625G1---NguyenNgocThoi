@@ -7,8 +7,14 @@
 <body>
 <script>
   let text = prompt('Nhập chuỗi bạn cần đếm số từ trong đó');
+  let count = 0;
   let textNew = text.split(' ');
-  alert(textNew.length);
+  for (let i = 0; i < textNew.length; i++) {
+    if (textNew[i] !== '') {
+      count++;
+    }
+  }
+  alert(count)
 </script>
 </body>
 </html>

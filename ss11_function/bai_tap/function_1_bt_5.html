@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tìm chòm sao từ tên ngôi sao</title>
+</head>
+<body>
+<script>
+  function findCs(ns) {
+    let arrNgoisao = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let arrChomsao = ['Ursa Minor', 'Taurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    let x = 0; //Đếm số lần không tìm thấy
+    let result = '';
+    for (let i = 0; i < arrNgoisao.length; i++) {
+      if (arrNgoisao[i] === ns) {
+        return result = arrChomsao[i];
+      } else {
+        x++;
+      }
+    }
+    if (x = arrNgoisao.length) {
+      return result = 'Không tìm thấy';
+    }
+  }
+
+  let ns = prompt('Nhập tên ngôi sao để tìm chòm sao');
+  document.write(findCs(ns));
+</script>
+</body>
+</html>

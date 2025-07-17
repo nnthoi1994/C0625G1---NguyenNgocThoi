@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển độ dài từ mét sang feet và ngược lại</title>
+</head>
+<body>
+<button onclick="(function(n){alert(n + ' mét = ' + metToFeet(n) + ' feet')})(prompt('Nhập số mét cần chuyển'))">Chuyển mét sang feet</button>
+<button onclick="(function(n){alert(n + ' feet = ' + feetToMet(n) + ' mét')})(prompt('Nhập số feet cần chuyển'))">Chuyển feet sang mét</button>
+<script>
+  function metToFeet(met) {
+    return met * 3.279;
+  }
+
+  function feetToMet(feet) {
+    return feet / 3.279;
+  }
+</script>
+</body>
+</html>

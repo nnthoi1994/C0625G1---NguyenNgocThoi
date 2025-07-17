@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo đối số</title>
+</head>
+<body>
+<button onclick="display()">Bấm</button>
+<p id="display"></p>
+<script>
+  function tang(a) {
+    return a + 1;
+  }
+
+  function display() {
+    let kq = tang(100);
+    document.getElementById('display').innerText = kq;
+  }
+</script>
+</body>
+</html>

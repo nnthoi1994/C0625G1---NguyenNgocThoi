@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bàn cờ caro</title>
+</head>
+<body>
+<p id="fTable"></p>
+
+<script>
+  let arr = new Array(10);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = new Array(10);
+    for (let j = 0; j < arr[i].length; j++) {
+      arr[i][j] = '';
+    }
+  }
+let checkplayer = true;
+  function fTable() {
+    let sTab = '<table border="1" style="border-collapse:collapse;">';
+    for (let i = 0; i < arr.length; i++) {
+      sTab += '<tr>';
+      for (let j = 0; j < arr[i].length; j++) {
+        sTab += `<td onclick = "play(${i},${j})" style="width: 40px; height:40px; text-align:center;">${arr[i][j]}</td>`;
+      }
+      sTab += '</tr>';
+    }
+    sTab += '</table>';
+    document.getElementById('fTable').innerHTML = sTab;
+  }
+
+  fTable();
+
+  function play(i, j) {
+    if(checkplayer) {
+      arr[i][j] = 'x';
+      checkplayer = false;
+    } else {
+      arr[i][j] = 'o';
+      checkplayer = true;
+    }
+    fTable();
+  }
+  function checkwin(){
+    if
+  }
+
+</script>
+</body>
+</html>

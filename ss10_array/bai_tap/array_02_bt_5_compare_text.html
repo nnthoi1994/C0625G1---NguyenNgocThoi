@@ -9,7 +9,7 @@
   let text1 = prompt('Nhập chuỗi 1 cần so sánh');
   let text2 = prompt('Nhập chuỗi 2 cần so sánh');
   let charSame = 0;
-  if (text1.length != text2.length) {
+  if (text1.length !== text2.length) {
     alert('2 chuỗi khác nhau');
   } else {
     for (let i = 0; i < text1.length; i++) {
@@ -19,7 +19,7 @@
         alert('2 chuỗi khác nhau');
       }
     }
-    if (charSame = text1.length) {
+    if (charSame === text1.length) {
       alert('Giống nhau');
     }
   }
