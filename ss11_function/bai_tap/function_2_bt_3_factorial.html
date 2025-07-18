@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính giai thừa</title>
+</head>
+<body>
+<script>
+  let a = prompt('Nhập số cần tính giai thừa');
+  alert('Giai thừa bằng: ' + factorial(a));
+
+  function factorial(x) {
+    let n = 1;
+    for (let i = 1; i <= x; i++) {
+      n *= i;
+    }
+    return n;
+  }
+</script>
+</body>
+</html>

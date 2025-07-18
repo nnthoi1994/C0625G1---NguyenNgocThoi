@@ -15,10 +15,15 @@
 
   function isPrime(number) {
     let check = true;
-    for (let i = 2; i < number; i++) {
-      if (number % i === 0) {
-        return check = false;
+    if (number < 2) {
+      check = false;
+    } else {
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          return check = false;
+        }
       }
+      return check = true;
     }
   }
 

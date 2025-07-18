@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập làm thêm</title>
+</head>
+<body>
+<button onclick="sumArr()">Check</button>
+<script> //Nhập 1 mảng từ bàn phím với độ dài n, n<20. Hiển thị mảng sau khi thêm mới các phần tử. Tính tổng phần tử chẵn ở vị trí lẻ
+
+let input = +prompt('Nhập số lượng số cần cộng theo điều kiện');
+let arr = [];
+for (let i = 1; i <= input; i++) {
+  arr.push(+prompt('Nhập số cần cộng theo điều kiện'));
+}
+document.write(sumArr(arr));
+
+function sumArr(nArr) {
+  let sum = 0;
+  for (let i = 0; i < nArr.length; i++) {
+
+    if (nArr[i] % 2 === 0 && (i % 2 !== 0)) {
+      sum += nArr[i];
+
+    }
+  }
+  return sum;
+}
+
+
+</script>
+</body>
+</html>

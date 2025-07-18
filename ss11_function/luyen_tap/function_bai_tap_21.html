@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trả về nhị phân của thập phân</title>
+</head>
+<body>
+<script>
+  let strDecimal = prompt('Nhập chuỗi thập phân');
+  convert(strDecimal);
+
+  function convert(decimal) {
+    let arrMod = [];
+    while (decimal > 0) {
+      arrMod.push(decimal % 2);
+      decimal = (decimal - (decimal % 2)) / 2;
+    }
+    alert(arrMod.reverse().join(''));
+  }
+</script>
+</body>
+</html>

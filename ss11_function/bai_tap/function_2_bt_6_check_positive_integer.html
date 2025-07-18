@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra số nguyên dương</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhập vào số cần kiểm tra');
+  checkInteger(n);
+
+  function checkInteger(x) {
+    if (Math.floor(x) === x && x > 0) {
+      alert('Số nguyên dương');
+    } else {
+      alert('Không phải số nguyên dương');
+    }
+  }
+</script>
+</body>
+</html>

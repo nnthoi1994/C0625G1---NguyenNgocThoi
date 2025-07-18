@@ -5,9 +5,19 @@
   <title>Chuyển độ dài từ mét sang feet và ngược lại</title>
 </head>
 <body>
-<button onclick="(function(n){alert(n + ' mét = ' + metToFeet(n) + ' feet')})(prompt('Nhập số mét cần chuyển'))">Chuyển mét sang feet</button>
-<button onclick="(function(n){alert(n + ' feet = ' + feetToMet(n) + ' mét')})(prompt('Nhập số feet cần chuyển'))">Chuyển feet sang mét</button>
+<button onclick="convert1()">Chuyển met sang Feet</button>
+<button onclick="convert2()">Chuyển feet sang met</button>
 <script>
+  function convert1() {
+    let a = prompt('Nhập số met cần chuyển');
+    alert(metToFeet(a));
+  }
+
+  function convert2() {
+    let a = prompt('Nhập số feet cần chuyển');
+    alert(feetToMet(a));
+  }
+
   function metToFeet(met) {
     return met * 3.279;
   }
