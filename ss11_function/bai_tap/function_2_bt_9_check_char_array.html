@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra kí tự trong mảng</title>
+</head>
+<body>
+<script>
+  let inputArr = [];
+  let nInputArr = +prompt('Số lượng phần tử trong mảng bạn muốn so sánh');
+  let char = prompt('Nhập kí tự cần đối chiếu với mảng');
+  for (let i = 1; i <= nInputArr; i++) {
+    inputArr.push(prompt('Nhập kí tự thứ ' + i + ' trong mảng cần đối chiếu'));
+  }
+  alert(inputArr);
+  alert(compare(inputArr, char));
+
+  function compare(arr, char) {
+    let position = arr.indexOf(char);
+    let count = 0;
+    while (position !== -1) {
+      position = arr.indexOf(char, position + 1);
+      count++;
+    }
+    return count === 0 ? -1 : count;
+  }
+</script>
+</body>
+</html>

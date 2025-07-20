@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bảng quản lý sản phẩm</title>
+</head>
+<body>
+
+<input type="text" id="addProd" placeholder="Thêm sản phẩm mới">
+<button onclick="add()">Thêm mới</button>
+<p id="display"></p>
+<script>
+  let listProd = ['iphone', 'nokia'];
+
+  display();
+
+  function display() {
+    let stringTab = '<table border="1" style="border-collapse:collapse;">';
+    for (let i = 1; i <= listProd.length; i++) {
+      stringTab += '<tr>';
+      stringTab += '<td>' + i + '</td>';
+      stringTab += '<td>' + listProd[i - 1] + '</td>';
+      stringTab += `<td onclick="edit(${i-1})">Sửa sản phẩm</td>`;
+      stringTab += '<td>1</td>';
+
+      stringTab += '</tr>';
+    }
+    stringTab = stringTab + '</table>';
+    document.getElementById('display').innerHTML = stringTab;
+  }
+
+  function add() {
+    let newProd = document.getElementById('addProd').value;
+    if (newProd.trim() !== '') {
+      listProd.push(newProd);
+      alert('Thêm mới thành công');
+    } else {
+      alert('Bạn chưa nhập tên sản phẩm');
+    }
+    display();
+  }
+
+  function edit(i) {
+    let nameEdit = "";
+    do {
+      nameEdit = prompt('Nhập tên sản phẩm bạn muốn sửa lại');
+      if (nameEdit === null) return;
+    }
+    while (nameEdit === "");
+      listProd[i] = nameEdit;
+      display();
+  }
+</script>
+</body>
+</html>
