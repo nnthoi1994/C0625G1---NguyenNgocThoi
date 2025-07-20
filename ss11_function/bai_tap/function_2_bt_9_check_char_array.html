@@ -12,8 +12,8 @@
   for (let i = 1; i <= nInputArr; i++) {
     inputArr.push(prompt('Nhập kí tự thứ ' + i + ' trong mảng cần đối chiếu'));
   }
-  alert(inputArr);
-  alert(compare(inputArr, char));
+
+  alert('Số lượng xuất hiện phần tử trong mảng: ' + compare(inputArr, char));
 
   function compare(arr, char) {
     let position = arr.indexOf(char);

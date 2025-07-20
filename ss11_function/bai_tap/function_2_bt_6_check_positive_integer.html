@@ -10,12 +10,19 @@
   checkInteger(n);
 
   function checkInteger(x) {
-    if (Math.floor(x) === x && x > 0) {
+
+    if (x !== x) {
+      alert('Vui lòng nhập một số hợp lệ');
+      return;
+    }
+
+    if (x % 1 === 0 && x > 0) {
       alert('Số nguyên dương');
     } else {
       alert('Không phải số nguyên dương');
     }
   }
+
 </script>
 </body>
 </html>
