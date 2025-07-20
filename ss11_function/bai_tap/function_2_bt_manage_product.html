@@ -10,18 +10,24 @@
 <button onclick="add()">Thêm mới</button>
 <p id="display"></p>
 <script>
-  let listProd = ['iphone', 'nokia'];
+  let listProd = [];
 
   display();
 
   function display() {
-    let stringTab = '<table border="1" style="border-collapse:collapse;">';
+    let stringTab = '<table style="border-collapse:collapse;">' +
+      '<th colspan="3" style="text-align: left; width:300px;">Danh sách sản phẩm</th>' +
+      '<th colspan="3">' + 'Tổng Sản phẩm: ' + listProd.length + '</th>';
     for (let i = 1; i <= listProd.length; i++) {
-      stringTab += '<tr>';
-      stringTab += '<td>' + i + '</td>';
-      stringTab += '<td>' + listProd[i - 1] + '</td>';
-      stringTab += `<td onclick="edit(${i-1})">Sửa sản phẩm</td>`;
-      stringTab += '<td>1</td>';
+      if (i % 2 == 0) {
+        stringTab += '<tr style="background-color:#00ffd9;">';
+      } else {
+        stringTab += '<tr style="background-color:#ffd500;">';
+      }
+      stringTab += '<td style="width:20px; text-align:center;">' + i + '.' + '</td>';
+      stringTab += '<td style="width:150px; text-align:left;">' + listProd[i - 1] + '</td>';
+      stringTab += `<td  style="width:120px; text-align:center;" ><button onclick="edit(${i - 1})">Sửa sản phẩm</button></td>`;
+      stringTab += `<td  style="width:150px; text-align:center;" ><button onclick="del(${i - 1})">Xóa sản phẩm</button></td>`;
 
       stringTab += '</tr>';
     }
@@ -34,6 +40,7 @@
     if (newProd.trim() !== '') {
       listProd.push(newProd);
       alert('Thêm mới thành công');
+      document.getElementById('addProd').value = '';
     } else {
       alert('Bạn chưa nhập tên sản phẩm');
     }
@@ -41,14 +48,21 @@
   }
 
   function edit(i) {
-    let nameEdit = "";
+    let nameEdit = '';
     do {
       nameEdit = prompt('Nhập tên sản phẩm bạn muốn sửa lại');
       if (nameEdit === null) return;
     }
-    while (nameEdit === "");
-      listProd[i] = nameEdit;
-      display();
+    while (nameEdit === '');
+    listProd[i] = nameEdit;
+    display();
+  }
+
+  function del(i) {
+    let delProd = confirm('Bạn có chắc chắn muốn xóa sản phẩm?');
+    if (!delProd) return;
+    listProd.splice(i, 1);
+    display();
   }
 </script>
 </body>
