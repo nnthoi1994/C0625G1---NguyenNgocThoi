@@ -6,13 +6,24 @@
 </head>
 <body>
 <script>
-  let n = prompt('')
-  checkChar(4);
+  let x = prompt('Nhập kí tự cần kiểm tra');
+  checkChar(x);
 
   function checkChar(n) {
-    let check = false;
-    if (typeof (n) === number) {
-      check = true;
+    if (n !== '') {
+      let count = 0; //Đếm số kí tự là số
+      for (let i = 0; i < n.length; i++) {
+        if (n[i] >= 0 && n[i] <= 10) {
+          count++;
+        }
+      }
+      if (count == n.length) {
+        alert('Đó là số');
+      } else {
+        alert('Không phải số');
+      }
+    } else {
+      return;
     }
   }
 </script>

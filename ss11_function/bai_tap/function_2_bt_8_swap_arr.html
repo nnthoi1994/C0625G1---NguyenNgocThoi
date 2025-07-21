@@ -5,23 +5,23 @@
   <title>Đảo ngược mảng số nguyên</title>
 </head>
 <body>
-<button onclick="swapArr()">Check</button>
-<script> //Nhập 1 mảng từ bàn phím với độ dài n, n<20. Hiển thị mảng sau khi thêm mới các phần tử. Tính tổng phần tử chẵn ở vị trí lẻ
 
-let input = +prompt('Nhập số lượng số nguyên cần đảo ngược');
-let arr = [];
-for (let i = 1; i <= input; i++) {
-  arr.push(+prompt('Nhập số cần đảo ngược'));
-}
-document.write(swapArr(arr));
+<script>
 
-function swapArr(nArr) {
-  let reversedArr = [];
-  for (let i = 0; i < nArr.length; i++) {
-    reversedArr[i] = nArr[nArr.length - i - 1];
+  let input = +prompt('Nhập số lượng số nguyên cần đảo ngược');
+  let arr = [];
+  for (let i = 1; i <= input; i++) {
+    arr.push(+prompt('Nhập số cần đảo ngược'));
   }
-  alert(reversedArr);
-}
+  swapArr(arr);
+
+  function swapArr(nArr) {
+    let reversedArr = [];
+    for (let i = 0; i < nArr.length; i++) {
+      reversedArr[i] = nArr[nArr.length - i - 1];
+    }
+    alert("Mảng sau khi đảo ngược là: " +reversedArr);
+  }
 </script>
 </body>
 </html>
