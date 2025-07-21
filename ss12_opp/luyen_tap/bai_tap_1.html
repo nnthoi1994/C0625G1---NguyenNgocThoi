@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo Class Student</title>
+</head>
+<body>
+<script>
+  class Student{
+    constructor(name, age){
+      this.ten = name;
+      this.age = age;
+    }
+    sayHello(){
+      alert(`Mình tên là ${this.ten}, năm nay mình ${this.age}`);
+    }
+  }
+  let st1 = new Student("An", 23)
+  st1.sayHello();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+<script>
+  class Temperature {
+    constructor(celsius) {
+      this.celsius = celsius;
+    }
+
+    f() {
+      return (this.celsius * (9 / 5) + 32);
+    }
+
+    k() {
+      return (this.celsius + 273.15);
+    }
+  }
+
+  let result = new Temperature(+prompt('Nhập độ C cần chuyển sang độ K và độ F'));
+  document.write('Độ F tương ứng là: ' + result.f() + ' và độ K tương ứng là: ' + result.k());
+</script>
+</body>
+</html>

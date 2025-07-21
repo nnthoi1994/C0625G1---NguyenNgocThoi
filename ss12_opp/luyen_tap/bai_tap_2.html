@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính diện tích hình tròn</title>
+</head>
+<body>
+<script>
+  class Circle{
+    constructor(radius){
+      this.radius = radius;
+    }
+    area(){
+      alert(`Diện tích là ${this.radius**2*Math.PI}`)
+    }
+  }
+  let check = new Circle(10);
+  check.area()
+</script>
+</body>
+</html>

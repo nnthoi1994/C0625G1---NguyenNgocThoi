@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<lable>Chiều dài</lable>
+<input type="number" id="length" value="200"><br>
+<lable>Chiều rộng</lable>
+<input type="number" id="width" value="200"><br>
+<button onclick="result()">Tính diện tích và chu vi</button>
+<br>
+<p id="area"></p>
+<p id="primeter"></p><br>
+<canvas id="rectangle" height="500px" width="500px"></canvas>
+<script>
+  class Rectangle {
+    constructor(length, width) {
+      this.length = length;
+      this.width = width;
+    }
+
+    area() {
+      return this.length * this.width;
+    }
+
+    perimeter() {
+      return (this.length + this.width) * 2;
+    }
+
+    draw() {
+      let canvas = document.getElementById('rectangle');
+      let ctx = canvas.getContext('2d');
+      ctx.clearRect(10, 10, canvas.width, canvas.height); // Xóa hình cũ
+      ctx.fillStyle = '#fa4b2a';
+      ctx.fillRect(10, 10, this.length, this.width);
+    }
+  }
+
+  function result() {
+    let newLength = parseFloat(document.getElementById('length').value);
+    let newWidth = parseFloat(document.getElementById('width').value);
+    let update = new Rectangle(newLength, newWidth);
+    document.getElementById('area').innerText = 'Diện tích hình chữ nhật là: ' + update.area();
+    document.getElementById('primeter').innerText = 'Chu vi hình chữ nhật là: ' + update.perimeter();
+    update.draw();
+  }
+
+</script>
+</body>
+</html>

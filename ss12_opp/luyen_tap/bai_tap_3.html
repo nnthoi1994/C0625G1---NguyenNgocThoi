@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiển thị thông tin xe</title>
+</head>
+<body>
+<script>
+class InfoCar{
+  constructor(brand, year){
+    this.brand = brand;
+    this.year = year;
+  }
+  getAge(currentYear){
+    return currentYear - this.year;
+  }
+}
+let result = new InfoCar("Toy", 1996);
+alert(result.getAge(2025));
+</script>
+</body>
+</html>
