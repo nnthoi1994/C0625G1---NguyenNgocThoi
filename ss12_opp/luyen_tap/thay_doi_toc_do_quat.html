@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Thay đổi tốc độ quạt</title>
 </head>
 <body>
-$END$
+<script>
+  class Fan {
+    constructor() {
+      this.speed = 0;
+    }
+
+    changeSpeed() {
+      if (this.speed >= 0 && this.speed < 3) {
+        this.speed++;
+      } else {
+        this.speed = 0;
+      }
+    }
+
+    display() {
+      alert('Tốc độ hiện tại là ' + this.speed);
+    }
+  }
+
+  class Switch {
+    constructor(fan) {
+      this.fan = fan;
+    }
+
+    press() {
+      this.fan.changeSpeed();
+      this.fan.display();
+    }
+  }
+  let fan1 = new Fan();
+  let switch1 = new Switch(fan1);
+  switch1.press();
+  switch1.press();
+  switch1.press();
+  switch1.press();
+  switch1.press();
+
+
+</script>
 </body>
 </html>

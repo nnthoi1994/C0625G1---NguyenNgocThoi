@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Bật tắt máy tính</title>
 </head>
 <body>
-$END$
+<script>
+  class Pc {
+    constructor() {
+      this.status = false;
+    }
+
+    change() {
+      this.status = !this.status;
+    }
+
+    display() {
+      this.status ? alert('Máy đang bật') : alert('Máy đang tắt');
+    }
+  }
+
+  class Button {
+    constructor(pc) {
+      this.pc = pc;
+    }
+
+    onOff() {
+      this.pc.change();
+    }
+  }
+
+  let pc1 = new Pc();
+  let button = new Button(pc1);
+  pc1.display();
+  button.onOff();
+  pc1.display();
+
+</script>
 </body>
 </html>

@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Tính tổng 2 đường chéo</title>
 </head>
 <body>
-$END$
+<pre id="render"></pre>
+<pre id="result"></pre>
+<pre id="result2"></pre>
+<script>
+  function sum() {
+    let arr = [];
+    let x1 = 0;
+    let x2 = 0;
+    let row = +prompt('Nhập độ dài hàng');
+    let col = +prompt('Nhập độ dài cột');
+    let render = '';
+    if (row >= 2 && col >= 2) {
+      for (let i = 0; i < row; i++) {
+        arr[i] = new Array(col);
+        render += '\n';
+        for (let j = 0; j < col; j++) {
+          arr[i][j] = +prompt('Nhập kí tự cho hàng ' + (i + 1) + ' và cột ' + (j + 1));
+          render += arr[i][j] + '\t';
+          if (i == j) {
+            x1 += arr[i][j];
+          }
+          if (i + j == (col - 1)) {
+            x2 += arr[i][j];
+          }
+        }
+      }
+      document.getElementById('render').innerHTML = render;
+    } else {
+      alert('Hàng và cột phải lớn hơn 2 để tạo đừng chéo');
+    }
+
+    document.getElementById('result').innerHTML = 'Tổng các số đường chéo 1: ' + x1;
+    document.getElementById('result2').innerHTML = 'Tổng các số đường chéo 2: ' + x2;
+  }
+
+  sum();
+</script>
+
 </body>
 </html>

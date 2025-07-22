@@ -2,9 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Quản lý sản phẩm bằng lập trình hướng đối tượng</title>
 </head>
 <body>
-$END$
+<input type="text" id="addProd" placeholder="Thêm sản phẩm mới">
+<button onclick="productList.add()">Thêm mới</button>
+<p id="display"></p>
+<script>
+  class Main {
+    constructor() {
+      this.arr = ["Nokia N91","Samsung Z21"];
+      this.display();
+
+    }
+
+    display() {
+      let table = '<table style="border-collapse:collapse;">' +
+        '<th colspan="3" style="text-align: left; width:300px;">Danh sách sản phẩm</th>' +
+        '<th colspan="3">' + 'Tổng Sản phẩm: ' + this.arr.length + '</th>';
+
+      for (let i = 1; i <= this.arr.length; i++) {
+        if (i % 2 == 0) {
+          table += '<tr style="background-color:#00ffd9;">';
+        } else {
+          table += '<tr style="background-color:#ffd500;">';
+        }
+        table += '<td style="width:20px; text-align:center;">' + i + '.' + '</td>';
+        table += '<td style="width:150px; text-align:left;">' + this.arr[i - 1] + '</td>';
+        table += `<td  style="width:120px; text-align:center;" ><button onclick="productList.edit(${i - 1})">Sửa sản phẩm</button></td>`;
+        table += `<td  style="width:150px; text-align:center;" ><button onclick="productList.del(${i - 1})">Xóa sản phẩm</button></td>`;
+
+        table += '</tr>';
+      }
+      table = table + '</table>';
+      document.getElementById('display').innerHTML = table;
+    }
+
+    add() {
+      let newProd = document.getElementById('addProd').value;
+      if (newProd.trim() !== '') {
+        this.arr.push(newProd);
+        alert('Thêm mới thành công');
+        document.getElementById('addProd').value = '';
+      } else {
+        alert('Bạn chưa nhập tên sản phẩm');
+      }
+      this.display();
+    }
+
+    edit(i) {
+      let nameEdit = '';
+      do {
+        nameEdit = prompt('Nhập tên sản phẩm bạn muốn sửa lại', this.arr[i]);
+        if (nameEdit === null) return;
+      }
+      while (nameEdit === '');
+      this.arr[i] = nameEdit;
+      this.display();
+    }
+
+    del(i) {
+      let delProd = confirm('Bạn có chắc chắn muốn xóa sản phẩm?');
+      if (!delProd) return;
+      this.arr.splice(i, 1);
+      this.display();
+    }
+  }
+
+  let productList = new Main();
+</script>
 </body>
 </html>

@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra chuỗi có phải ngày không</title>
+  </head>
+  <body>
+  <label for="date">Chuỗi cần kiểm tra</label>
+  <input type="text" id="date"><br>
+  <button onclick="check()">Kiểm tra</button>
+  <script>
+    function check() {
+      let arr = document.getElementById('date').value;
+      if (arr.length == 10 && ((arr[2] && arr[5]) == '/')) {
+        let newArr = arr.split('/');
+        let day = parseFloat(newArr[0]);
+        let month = parseFloat(newArr[1]);
+        alert(day);
+      } else {
+        alert('Không phải ngày tháng năm');
+      }
+    }
+  </script>
+  </body>
+  </html>
