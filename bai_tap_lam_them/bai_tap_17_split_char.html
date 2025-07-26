@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tách chuỗi nếu 1 từ thì in ra 1 từ, nếu 2 từ trở lên thì in ra chữ đầu tiên của mỗi từ</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    let nStr = str.split(' ');
+
+    if (nStr.length > 1) {
+      for (let i = 0; i < nStr.length; i++) {
+        nStr[i] = nStr[i][0];
+      }
+    }
+    return nStr.join("");
+  }
+  let a = "Con Ga Trong";
+  alert(checkString(a));
+</script>
+</body>
+</html>

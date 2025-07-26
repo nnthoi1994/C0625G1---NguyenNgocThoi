@@ -7,13 +7,50 @@
 <body>
 <script>
   class Remote {
-    contructor(id){
-      this.id=id;
+    constructor(id, tv) {
+      this.id = id;
+      this.tv = tv;
     }
-    changeChanel(){
-        
+
+    changeChanel(x) {
+      this.tv.chanel = x;
+    }
+
+    changeVolume(y) {
+      if (y = 'up') {
+        this.volume++;
+      } else {
+        this.volume--;
+      }
     }
   }
+
+  class Tivi {
+    constructor(chanel, volume, status) {
+      this.chanel = chanel;
+      this.volume = volume;
+      this.status = false;
+    }
+
+    getChanel() {
+      return this.chanel;
+    }
+    getStatus(){
+      return this.status;
+    }
+    setStatus(a){
+      this.status(a)
+    }
+  }
+
+  let sony = new Tivi(7, 1);
+  let remote = new Remote(1, sony);
+
+  alert(sony.chanel);
+  remote.changeChanel(8);
+  alert(sony.getChanel());
+
+
 </script>
 </body>
 </html>

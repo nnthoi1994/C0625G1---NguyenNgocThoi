@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra kí tự có phải nguyên âm</title>
+</head>
+<body>
+<script>
+  let char = prompt("Nhập kí tự cần kiểm tra?")
+  switch (char.toUpperCase()) {
+    case "U":
+    case "E":
+    case "O":
+    case "A":
+    case "I":
+      alert("Đúng")
+      break
+    default:
+      alert("Không phải")
+  }
+</script>
+</body>
+</html>

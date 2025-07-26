@@ -1,50 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Bàn cờ caro</title>
+  <title>Cờ Caro 5 Ô</title>
 </head>
 <body>
-<p id="fTable"></p>
+
+<p id="display"></p>
 
 <script>
-  let arr = new Array(10);
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = new Array(10);
-    for (let j = 0; j < arr[i].length; j++) {
-      arr[i][j] = '';
+  // Tạo mảng 40x40
+  let array = new Array(40);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = new Array(40);
+    for (let j = 0; j < array[i].length; j++) {
+      array[i][j] = "";
     }
   }
-let checkplayer = true;
-  function fTable() {
-    let sTab = '<table border="1" style="border-collapse:collapse;">';
-    for (let i = 0; i < arr.length; i++) {
-      sTab += '<tr>';
-      for (let j = 0; j < arr[i].length; j++) {
-        sTab += `<td onclick = "play(${i},${j})" style="width: 40px; height:40px; text-align:center;">${arr[i][j]}</td>`;
+
+  // Biến người chơi
+  let playerX = true;
+
+  // Hiển thị bảng lần đầu
+  display();
+
+  // Hàm hiển thị bàn cờ
+  function display() {
+    let tableString = `<table border="1" style="border-collapse: collapse">`;
+    for (let i = 0; i < array.length; i++) {
+      tableString += `<tr>`;
+      for (let j = 0; j < array[i].length; j++) {
+        tableString += `<td onclick="play(${i},${j})" style="width: 40px; height: 40px; text-align: center; font-size: 24px; cursor: pointer;">${array[i][j]}</td>`;
       }
-      sTab += '</tr>';
+      tableString += `</tr>`;
     }
-    sTab += '</table>';
-    document.getElementById('fTable').innerHTML = sTab;
+    tableString += `</table>`;
+    document.getElementById("display").innerHTML = tableString;
   }
 
-  fTable();
-
+  // Hàm xử lý khi click ô
   function play(i, j) {
-    if(checkplayer) {
-      arr[i][j] = 'x';
-      checkplayer = false;
+    if (array[i][j] === "") {
+      if (playerX) {
+        array[i][j] = "X";
+      } else {
+        array[i][j] = "O";
+      }
+
+      // Không kiểm tra thắng thua
+      playerX = !playerX;
+      display();
     } else {
-      arr[i][j] = 'o';
-      checkplayer = true;
+      alert("Ô này đã đánh rồi bạn ơi!");
     }
-    fTable();
-  }
-  function checkwin(){
-    if
   }
 
+  // Hàm kiểm tra thắng (không còn dùng, có thể xóa nếu muốn)
+  /*
+  function checkWin() {
+      const size = array.length;
+      const winLength = 5;
+
+      for (let i = 0; i < size; i++) {
+          for (let j = 0; j < size; j++) {
+              const player = array[i][j];
+              if (player === "") continue;
+
+              // Ngang →
+              if (j <= size - winLength) {
+                  let count = 0;
+                  for (let k = 0; k < winLength; k++) {
+                      if (array[i][j + k] === player) count++;
+                  }
+                  if (count === winLength) return true;
+              }
+
+              // Dọc ↓
+              if (i <= size - winLength) {
+                  let count = 0;
+                  for (let k = 0; k < winLength; k++) {
+                      if (array[i + k][j] === player) count++;
+                  }
+                  if (count === winLength) return true;
+              }
+
+              // Chéo phải ↘
+              if (i <= size - winLength && j <= size - winLength) {
+                  let count = 0;
+                  for (let k = 0; k < winLength; k++) {
+                      if (array[i + k][j + k] === player) count++;
+                  }
+                  if (count === winLength) return true;
+              }
+
+              // Chéo trái ↙
+if (i <= size - winLength && j >= winLength - 1) {
+                  let count = 0;
+                  for (let k = 0; k < winLength; k++) {
+                      if (array[i + k][j - k] === player) count++;
+                  }
+                  if (count === winLength) return true;
+              }
+          }
+      }
+
+      return false;
+  }
+  */
 </script>
 </body>
 </html>

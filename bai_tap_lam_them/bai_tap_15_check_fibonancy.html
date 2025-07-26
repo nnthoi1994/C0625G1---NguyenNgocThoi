@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra phần tử trong mảng có phải fibonacy không</title>
+</head>
+<body>
+<script>
+  function checkFib(x) {
+    let check = false;
+    let n = 0;
+    let n1 = 1;
+    let n2 = 0;
+    for (let i = 1; n2 <= x; i++) {
+      n2 = n1 + n;
+      n = n1;
+      n1 = n2;
+      if (x == n2 || x == 0) {
+        check = true;
+        return check;
+      }
+    }
+    return check;
+  }
+
+  let n = +prompt('Nhập độ dài mảng cần check');
+  let arr = [];
+  let check2 = false;
+  for (let i = 1; i <= n; i++) {
+    arr.push(+prompt('Nhập số thứ ' + i + ' cần check'));
+  }
+  for (let i = 0; i < n; i++) {
+    if (checkFib(arr[i])) {
+      check2 = true;
+    } else {
+      check2 = false;
+      break;
+    }
+  }
+  alert(check2 === true ? 'OK' : 'NO');
+</script>
+</body>
+</html>

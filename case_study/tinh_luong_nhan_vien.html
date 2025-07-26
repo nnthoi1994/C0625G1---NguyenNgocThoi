@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính lương nhân viên</title>
+</head>
+<body>
+<script>
+  let salary = +prompt('Nhập lương nhân viên(triệu)');
+  let fSalary = 0;
+  if (salary < 7) {
+    fSalary = salary * 1.05;
+  } else {
+    if (salary >= 7 && salary < 15) {
+      fSalary = salary * 1.1;
+    } else {
+      fSalary = salary * 1.2;
+    }
+  }
+  alert(fSalary);
+</script>
+</body>
+</html>

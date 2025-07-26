@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra một phần hai mảng sau bằng bình phương một phần hai mảng trước</title>
+</head>
+<body>
+<script>
+  function checkN(arr) {
+    let check = false;
+    if (arr.length % 2 == 0) {
+      for (let i = 1; i <= arr.length / 2; i++) {
+        if (arr[i] * arr[i] != arr[i + (arr.length) / 2]) {
+          alert(arr[i + (arr.length) / 2]);
+          return check = fasle;
+          break;
+        }
+      }
+      return check = true;
+    } else {
+      return check = false;
+    }
+  }
+
+  let x = [1, 2, 3, 1, 4, 9];
+  alert(checkN(x));
+</script>
+</body>
+</html>

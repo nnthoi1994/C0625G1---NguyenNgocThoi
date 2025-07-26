@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function timeConversion(s) {
+    let h = s[0]+s[1];
+    h = parseFloat(h);
+    let ms = s[3]+s[4]+s[5]+s[6]+s[7];
+    let time = s[8]+s[9];
+    if(time === "AM"){
+      if(h==12){
+        h='00';
+      }
+    } else {
+      if(time === "PM"){
+        if(h!==12){
+          h += 12;
+        }
+      }
+
+    }
+    if (h<10){
+      h= "0"+h;
+    }
+    let result = h + ':'+ ms;
+    return result;
+  }
+  alert(timeConversion("06:58:59AM"));
+</script>
+</body>
+</html>
