@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bảng quản lý sản phẩm (OOP)</title>
+</head>
+<body>
+
+<input type="text" id="addProd" placeholder="Thêm sản phẩm mới">
+<button onclick="productList.add()">Thêm mới</button>
+<p id="display"></p>
+
+<script>
+  class ProductList {
+    constructor() {
+      this.list = [];
+      this.display();
+    }
+
+    display() {
+      let html = '<table style="border-collapse:collapse;">' +
+        '<th colspan="3" style="text-align: left; width:300px;">Danh sách sản phẩm</th>' +
+        '<th colspan="3">Tổng Sản phẩm: ' + this.list.length + '</th>';
+
+      for (let i = 0; i < this.list.length; i++) {
+        let bgColor = i % 2 === 0 ? '#ffd500' : '#00ffd9';
+        html += `<tr style="background-color:${bgColor};">`;
+        html += `<td style="width:20px; text-align:center;">${i + 1}.</td>`;
+        html += `<td style="width:150px; text-align:left;">${this.list[i]}</td>`;
+        html += `<td style="width:120px; text-align:center;"><button onclick="productList.edit(${i})">Sửa sản phẩm</button></td>`;
+        html += `<td style="width:150px; text-align:center;"><button onclick="productList.delete(${i})">Xóa sản phẩm</button></td>`;
+        html += '</tr>';
+      }
+
+      html += '</table>';
+      document.getElementById('display').innerHTML = html;
+    }
+
+    add() {
+      let newProd = document.getElementById('addProd').value.trim();
+      if (newProd !== '') {
+        this.list.push(newProd);
+        alert('Thêm mới thành công');
+        document.getElementById('addProd').value = '';
+        this.display();
+      } else {
+        alert('Bạn chưa nhập tên sản phẩm');
+      }
+    }
+
+    edit(index) {
+      let nameEdit = '';
+      do {
+        nameEdit = prompt('Nhập tên sản phẩm bạn muốn sửa lại', this.list[index]);
+        if (nameEdit === null) return;
+      } while (nameEdit.trim() === '');
+
+      this.list[index] = nameEdit;
+      this.display();
+    }
+
+    delete(index) {
+      let confirmDelete = confirm('Bạn có chắc chắn muốn xóa sản phẩm?');
+      if (!confirmDelete) return;
+      this.list.splice(index, 1);
+      this.display();
+    }
+  }
+
+  // Khởi tạo đối tượng quản lý sản phẩm
+  const productList = new ProductList();
+</script>
+</body>
+</html>

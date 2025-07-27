@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tam giác cân rỗng</title>
+</head>
+<body>
+<pre id="triangle"></pre>
+<script>
+  let result = '';
+  let h = +prompt("chiều cao")
+  // for (i = 1; i <= h; i++) {
+  //   for (let k = 1; k <=h-i; k++) {
+  //     result += ' ';
+  //     if(k==h-i){
+  //       result += '*';
+  //     }
+  //   }
+  //   for(let j = 1; j <=h; j++) {
+  //     if(j<=i+(i-1)-2&&i!=h){
+  //       result += ' ';
+  //     }
+  //   }
+  //   if(i>1&&i<h){
+  //     result += "*";
+  //   }
+  //   for(let n=1;n<=h*2-1;n++){
+  //     if(i==h){
+  //       result += '*';
+  //     }
+  //   }
+  //
+  //   result = result + '\n';
+  // }
+
+  for(i=1;i<=h;i++){
+    for(j=1;j<=h-i;j++){
+      result += ' ';
+    }
+    for(k=1;k<=i*2-1;k++){
+      if(k==1||k==i*2-1||i==h){
+        result += "*";
+      } else {
+        result += ' ';
+      }
+
+    }
+    result += '\n';
+  }
+
+  document.getElementById('triangle').innerHTML = result;
+</script>
+</body>
+</html>

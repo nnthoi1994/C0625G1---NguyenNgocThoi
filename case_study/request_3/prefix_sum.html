@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính tổng của mảng</title>
+</head>
+<body>
+<script>
+let array=[1,7,5,3];
+
+alert(prefixSum(array));
+  function prefixSum(arr) {
+    let sum = 0;
+    let arrNew = [];
+    for (let i = 0; i < arr.length; i++) {
+
+      arrNew.push(arr[i] + sum);
+      sum += arr[i]
+    }
+    return arrNew;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý học viên</title>
+</head>
+<body>
+<button onclick="add()">Thêm mới học viên</button>
+<table border="1">
+  <thead>
+  <tr>
+    <th>Mã HV</th>
+    <th>Tên HV</th>
+    <th>Lớp</th>
+    <th>Ngày tháng năm sinh</th>
+    <th>Email</th>
+    <th>Module</th>
+  </tr>
+  </thead>
+  <tbody id="studentTableBody"></tbody>
+</table>
+<script>
+  class Student {
+    constructor(id, name, className, email, dob, module) {
+      this.id = id;
+      this.name = name;
+      this.className = className;
+      this.dob = dob;
+      this.email = email;
+      this.module = module;
+    }
+  }
+
+  let students = [new Student('HV-0001', 'Thới', 'C0625', 'thoi94@gmail.com', '01/01/2001', 1),
+    new Student('HV-0002', 'Thành', 'C0625', 'thanh@gmail.com', '01/01/2002', 1),
+    new Student('HV-0003', 'An', 'C0625', 'an@gmail.com', '01/01/2003', 1)
+  ];
+
+  function displayStudents() {
+    let tableBody = document.getElementById('studentTableBody');
+    tableBody.innerHTML = '';
+
+    for (let i = 0; i < students.length; i++) {
+      let student = students[i];
+      let row = `<tr>
+      <td>${student.id}</td>
+      <td>${student.name}</td>
+      <td>${student.className}</td>
+      <td>${student.dob}</td>
+      <td>${student.email}</td>
+      <td>${student.module}</td>
+    </tr>`;
+      tableBody.innerHTML += row;
+    }
+  }
+
+  function check(id) {
+    if (id.length != 7 || id.slice(0, 3) != 'HV-') {
+      return false;
+    } else {
+      let digits = id.slice(3);
+      for (let i = 0; i < id.length; i++) {
+        if (digits[i] < '0' || digits[i] > '9') {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+
+  function checkDup(id) {
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].id === id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function checkDate(date){
+    if(date.length!==10||date[2]!=="/"||date[5]!=="/"){
+      alert("Ngày tháng năm chưa đúng định dạng dd/mm/yyyy")
+      return false;
+    }
+    let parts = date.split("/");
+    let day = parseFloat(parts[0]);
+    let month = parseFloat(parts[1]);
+    let year = parseFloat(parts[2]);
+    if(day>31||day<1||month>12||month<1||year<1){
+      alert ("Ngày tháng năm chưa hợp lệ")
+      return false;
+    }
+    let dayInMonth;
+    switch (month){
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        dayInMonth = 31;
+        break;
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+        dayInMonth = 30;
+        break;
+      case 2:
+        if((year%4==0&&year%100!=0)||(year%400==0)){
+          dayInMonth = 29;
+        } else {
+          dayInMonth = 28;
+        }
+        break;
+    }
+    if(day>dayInMonth){
+      alert(`Ngày không hợp lệ, tháng ${month} của năm ${year} có số ngày từ 1 đến ${dayInMonth}`)
+      return false;
+    }
+    return true;
+  }
+
+  function add() {
+    let id = prompt('Nhập mã học viên cần thêm mới (Định dạng HV-xxxx):');
+    if (!check(id)) {
+      alert('id không đúng định dạng HV-xxxx');
+      return;
+    }
+    if (checkDup(id)) {
+      alert('ID đã tồn tại');
+      return;
+    }
+
+    let name = prompt('Nhập tên học viên (Không quá 50 kí tự)');
+    if (name.length > 50 || name == '') {
+      alert('Bạn chưa nhập tên hoặc tên dài hơn 50 kí tự');
+      return;
+    }
+
+    let classname = prompt('Nhập tên lớp');
+    while (classname == '') {
+      alert('Bạn chưa nhập tên lớp');
+      classname = prompt('Nhập tên lớp');
+    }
+
+    let email = prompt('Nhập email');
+    while (email == '') {
+      alert('Bạn chưa nhập email');
+      email = prompt('Nhập email');
+    }
+
+    let dob = prompt("Nhập ngày tháng năm sinh học viên")
+    while (!checkDate(dob)) {
+      dob = prompt("Nhập lại ngày tháng năm sinh học viên")
+    }
+
+    let module = prompt("Nhập module (Từ 1 đến 6)")
+    while (module<1||module>6||isNaN(module)) {
+      alert("Vui lòng nhập đúng số module (1-6)")
+      module = prompt("Nhập lại module")
+    }
+
+    let newStudent = new Student(id, name, classname, email, dob, module);
+    students.push(newStudent);
+    displayStudents();
+  }
+
+  function edit
+
+  displayStudents();
+</script>
+</body>
+</html>

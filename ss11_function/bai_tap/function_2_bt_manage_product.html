@@ -50,7 +50,7 @@
   function edit(i) {
     let nameEdit = '';
     do {
-      nameEdit = prompt('Nhập tên sản phẩm bạn muốn sửa lại');
+      nameEdit = prompt('Nhập tên sản phẩm bạn muốn sửa lại', listProd[i]);
       if (nameEdit === null) return;
     }
     while (nameEdit === '');
