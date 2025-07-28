@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính tổng phần tử trong mảng</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhập số lượng phần tử cần tính tổng(Số lượng phần tử nhỏ hơn hoặc bằng 50');
+  if (n < 1 || n > 50) {
+    alert('Vui lòng nhập đúng số lượng phần tử');
+  }
+  let arr = [];
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    arr.push(+prompt(`Phần tử thứ ${i}`));
+    if (isPrime(i)) {
+      sum += arr[i];
+    }
+  }
+  document.write('Đây là mảng đã nhập: ' + arr);
+  document.write('<br> Tổng các số nguyên tố tại vị trí index' + sum);
+
+
+  function isPrime(number) {
+    let check = true;
+    if (number < 2) {
+      check = false;
+    } else {
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          return check = false;
+        }
+      }
+      return check = true;
+    }
+  }
+</script>
+</body>
+</html>

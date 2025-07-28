@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo một lớp máy tính</title>
+</head>
+<body>
+<button onclick="add()">Thêm mới</button>
+<button onclick="arrangePrice()">Sắp xếp theo giá</button>
+<table border="1">
+  <thead>
+  <tr>
+    <th>Mã máy</th>
+    <th>Tên máy</th>
+    <th>Hãng</th>
+    <th>Đơn giá</th>
+  </tr>
+  </thead>
+  <tbody id="comTableBody"></tbody>
+</table>
+<script>
+  class Computer {
+    constructor(id, name, company, price) {
+      this.id = id;
+      this.name = name;
+      this.company = company;
+      this.price = price;
+    }
+
+    getId() {
+      return this.id;
+    }
+
+    getName() {
+      return this.name;
+    }
+
+    getCompany() {
+      return this.company;
+    }
+
+    getPrice() {
+      return this.price;
+    }
+
+    setId(id) {
+      this.id == id;
+    }
+
+    setName(name) {
+      this.name == name;
+    }
+
+    setCompany(company) {
+      this.company == company;
+    }
+
+    setPrice(price) {
+      this.price == price;
+    }
+  }
+
+  let computers = [new Computer('Com1', 'Spiron', 'Dell', 10000000),
+    new Computer('Com2', 'Vostro', 'Dell', 2000000)
+  ];
+
+  function displayComputers() {
+    let tableBody = document.getElementById('comTableBody');
+    tableBody.innerHTML = '';
+
+    for (let i = 0; i < computers.length; i++) {
+      let computer = computers[i];
+      let row = `<tr>
+      <td>${computer.id}</td>
+      <td>${computer.name}</td>
+      <td>${computer.company}</td>
+      <td>${computer.price}</td>
+    </tr>`;
+      tableBody.innerHTML += row;
+    }
+  }
+
+  function add() {
+    let id = prompt('Nhập id');
+    while (id == '') {
+      alert('Bạn chưa nhập id');
+      id = prompt('Nhập lại id');
+    }
+
+    let name = prompt('Nhập name');
+    while (name == '') {
+      alert('Bạn chưa nhập name');
+      name = prompt('Nhập lại name');
+    }
+
+    let company = prompt('Nhập company');
+    while (company == '') {
+      alert('Bạn chưa nhập company');
+      company = prompt('Nhập lại company');
+    }
+
+    let price = prompt('Nhập price');
+    while (price == '') {
+      alert('Bạn chưa nhập price');
+      price = prompt('Nhập lại price');
+    }
+
+    let newCom = new Computer(id, name, company, price);
+    computers.push(newCom);
+    displayComputers();
+  }
+
+  function arrangePrice() {
+    computers.sort((a, b) => (a.getPrice() - b.getPrice()));
+    displayComputers();
+  }
+
+
+  displayComputers();
+</script>
+</body>
+</html>

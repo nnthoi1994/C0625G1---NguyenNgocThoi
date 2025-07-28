@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>So sánh phân số</title>
+</head>
+<body>
+<script>
+  let numerators = [5, 2, 5];
+  let denominators = [6, 1, 5];
+alert(maxFraction(numerators, denominators));
+  function maxFraction(a, b) {
+    let max = 0;
+    let index = 0;
+    for (let i = 0; i < a.length;i++) {
+      if (a[i] / b[i] > max) {
+        max = a[i] / b[i];
+        index = i;
+      }
+    }
+    return index;
+  }
+</script>
+</body>
+</html>

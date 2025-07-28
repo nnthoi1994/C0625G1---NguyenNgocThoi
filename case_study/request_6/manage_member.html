@@ -5,16 +5,21 @@
   <title>Quản lý học viên</title>
 </head>
 <body>
+<h2>BẢNG QUẢN LÝ HỌC VIÊN CODEGYM</h2>
 <button onclick="add()">Thêm mới học viên</button>
-<table border="1">
+<button onclick="del()">Xóa học viên</button>
+<button onclick="edit()">Chỉnh sửa thông tin học viên</button>
+<br>
+<br>
+<table border="1" >
   <thead>
   <tr>
-    <th>Mã HV</th>
-    <th>Tên HV</th>
-    <th>Lớp</th>
-    <th>Ngày tháng năm sinh</th>
-    <th>Email</th>
-    <th>Module</th>
+    <th style="width: 100px; height: 50px">Mã HV</th>
+    <th style="width: 100px;">Tên HV</th>
+    <th style="width: 100px;">Lớp</th>
+    <th style="width: 200px;">Ngày tháng năm sinh</th>
+    <th style="width: 150px;">Email</th>
+    <th style="width: 100px;">Module</th>
   </tr>
   </thead>
   <tbody id="studentTableBody"></tbody>
@@ -77,21 +82,21 @@
     return false;
   }
 
-  function checkDate(date){
-    if(date.length!==10||date[2]!=="/"||date[5]!=="/"){
-      alert("Ngày tháng năm chưa đúng định dạng dd/mm/yyyy")
+  function checkDate(date) {
+    if (date.length !== 10 || date[2] !== '/' || date[5] !== '/') {
+      alert('Ngày tháng năm chưa đúng định dạng dd/mm/yyyy');
       return false;
     }
-    let parts = date.split("/");
+    let parts = date.split('/');
     let day = parseFloat(parts[0]);
     let month = parseFloat(parts[1]);
     let year = parseFloat(parts[2]);
-    if(day>31||day<1||month>12||month<1||year<1){
-      alert ("Ngày tháng năm chưa hợp lệ")
+    if (day > 31 || day < 1 || month > 12 || month < 1 || year < 1) {
+      alert('Ngày tháng năm chưa hợp lệ');
       return false;
     }
     let dayInMonth;
-    switch (month){
+    switch (month) {
       case 1:
       case 3:
       case 5:
@@ -108,15 +113,15 @@
         dayInMonth = 30;
         break;
       case 2:
-        if((year%4==0&&year%100!=0)||(year%400==0)){
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
           dayInMonth = 29;
         } else {
           dayInMonth = 28;
         }
         break;
     }
-    if(day>dayInMonth){
-      alert(`Ngày không hợp lệ, tháng ${month} của năm ${year} có số ngày từ 1 đến ${dayInMonth}`)
+    if (day > dayInMonth) {
+      alert(`Ngày không hợp lệ, tháng ${month} của năm ${year} có số ngày từ 1 đến ${dayInMonth}`);
       return false;
     }
     return true;
@@ -139,10 +144,15 @@
       return;
     }
 
-    let classname = prompt('Nhập tên lớp');
-    while (classname == '') {
+    let className = prompt('Nhập tên lớp');
+    while (className == '') {
       alert('Bạn chưa nhập tên lớp');
-      classname = prompt('Nhập tên lớp');
+      className = prompt('Nhập tên lớp');
+    }
+
+    let dob = prompt('Nhập ngày tháng năm sinh học viên');
+    while (!checkDate(dob)) {
+      dob = prompt('Nhập lại ngày tháng năm sinh học viên');
     }
 
     let email = prompt('Nhập email');
@@ -151,23 +161,77 @@
       email = prompt('Nhập email');
     }
 
-    let dob = prompt("Nhập ngày tháng năm sinh học viên")
-    while (!checkDate(dob)) {
-      dob = prompt("Nhập lại ngày tháng năm sinh học viên")
+    let module = prompt('Nhập module (Từ 1 đến 6)');
+    while (module < 1 || module > 6 || isNaN(module)) {
+      alert('Vui lòng nhập đúng số module (1-6)');
+      module = prompt('Nhập lại module');
     }
 
-    let module = prompt("Nhập module (Từ 1 đến 6)")
-    while (module<1||module>6||isNaN(module)) {
-      alert("Vui lòng nhập đúng số module (1-6)")
-      module = prompt("Nhập lại module")
-    }
-
-    let newStudent = new Student(id, name, classname, email, dob, module);
+    let newStudent = new Student(id, name, className, email, dob, module);
     students.push(newStudent);
     displayStudents();
   }
 
-  function edit
+  function del() {
+    let codeDel = prompt('Nhập mã học viên cần xóa');
+    if (!checkDup(codeDel)) {
+      alert('Không tìm thấy mã học viên');
+      return;
+    }
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].id == codeDel) {
+        students.splice(i, 1);
+        displayStudents();
+      }
+    }
+  }
+
+  function edit() {
+    let codeEdit = prompt('Nhập mã cần sửa');
+    if (!checkDup(codeEdit)) {
+      alert('Không tìm thấy mã học viên');
+      return;
+    }
+
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].id == codeEdit) {
+        let nameNew = prompt('Chỉnh sửa tên học viên (Không quá 50 kí tự)', students[i].name);
+        if (nameNew.length > 50 || nameNew == '') {
+          alert('Bạn chưa nhập tên hoặc tên dài hơn 50 kí tự');
+          return;
+        }
+
+        let classNameNew = prompt('Chỉnh sửa tên lớp', students[i].className);
+        while (classNameNew == '') {
+          alert('Bạn chưa nhập tên lớp');
+          classNameNew = prompt('chỉnh sửa tên lớp');
+        }
+
+        let emailNew = prompt('chỉnh sửa email', students[i].email);
+        while (emailNew == '') {
+          alert('Bạn chưa chỉnh sửa email');
+          emailNew = prompt('chỉnh sửa email');
+        }
+
+        let dobNew = prompt('chỉnh sửa ngày tháng năm sinh học viên', students[i].dob);
+        while (!checkDate(dobNew)) {
+          dobNew = prompt('chỉnh sửa lại ngày tháng năm sinh học viên');
+        }
+
+        let moduleNew = prompt('chỉnh sửa module (Từ 1 đến 6)', students[i].module);
+        while (moduleNew < 1 || moduleNew > 6 || isNaN(moduleNew)) {
+          alert('Vui lòng chỉnh sửa đúng số module (1-6)');
+          moduleNew = prompt('chỉnh sửa lại module');
+        }
+        students[i].name = nameNew;
+        students[i].className = classNameNew;
+        students[i].email = emailNew;
+        students[i].dob = dobNew;
+        students[i].module = moduleNew;
+        displayStudents();
+      }
+    }
+  }
 
   displayStudents();
 </script>

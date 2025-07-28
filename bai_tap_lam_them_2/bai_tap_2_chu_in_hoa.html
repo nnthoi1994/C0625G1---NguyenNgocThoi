@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính số lượng in hoa in thường</title>
+</head>
+<body>
+<script>
+  let arr = prompt('Nhập chuỗi cần tính in hoa in thường');
+  alert(countLowerUpper(arr));
+
+  function countLowerUpper(arr) {
+    let arr2 = [];
+    let upper = 0; //Số lượng in hoa
+    let lower = 0; //Số lượng in thường
+    for (let i = 0; i < arr.length; i++) {
+      if  (arr[i] >= 'a' && arr[i] <= 'z') {
+        lower++;
+      }
+      if  (arr[i] >= 'A' && arr[i] <= 'Z') {
+        upper++;
+      }
+
+    }
+    return [lower, upper];
+  }
+</script>
+</body>
+</html>

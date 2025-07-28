@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra fibo trong mảng</title>
+</head>
+<body>
+<script>
+  let arr = [5, 2, 3, 4, 5, 17711];
+  alert(displayFibo(arr));
+
+  function displayFibo(arr) {
+    let arrFibo = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (checkFib(arr[i])) {
+        arrFibo.push(arr[i]);
+      }
+    }
+    arrFibo.sort((a, b) => (a - b));
+    return arrFibo;
+  }
+
+
+  function checkFib(x) {
+    let check = false;
+    let n = 0;
+    let n1 = 1;
+    let n2 = 0;
+    for (let i = 1; n2 <= x; i++) {
+      n2 = n1 + n;
+      n = n1;
+      n1 = n2;
+      if (x == n2 || x == 0) {
+        check = true;
+        return check;
+      }
+    }
+    return check;
+  }
+</script>
+</body>
+</html>
