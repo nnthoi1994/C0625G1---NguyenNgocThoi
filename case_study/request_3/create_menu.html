@@ -2,21 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chọn thức uống từ  menu</title>
+  <title>Chọn thức uống từ menu</title>
 </head>
 <body>
 <script>
   let select;
-  let cafe;
+  let cafe=0;
+  let cam=0;
+  let caRot=0;
+  let caChua=0;
+  let nuocLoc=0;
+  let nuocDua=0;
+  let content = 'Hãy chọn thức uống bằng cách gõ số theo menu bên dưới:\n' +
+    '1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua), 5(nước lọc), 6(nước dừa), 7(thoát gọi món)';
+  let content2 = '';
+  let sum=0;
   do {
-    select = +prompt("Hãy chọn thức uống bằng cách gõ số theo menu bên dưới:\n" +
-      "1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua), 5(nước lọc), 6(nước dừa), 7(thoát gọi món)")
+    sum = cafe*10+cam*12+caRot*15+caChua*15+nuocLoc*7+nuocDua*20;
+    select = +prompt(content + content2 + "\n Tổng tiền: " + sum +".000");
+    content2 = '';
+
+    if(select==1){
+         cafe += +prompt('Cafe có giá 10K, bạn cần số lượng bao nhiêu');
+       }
+    if (cafe>0) {
+      content2 += '\nBạn đã chọn Cafe: ' + cafe + ' ly------Tổng: '+cafe*10 +".000";
+    }
+    if(select==2){
+      cam += +prompt('Cam có giá 12K, bạn cần số lượng bao nhiêu');
+    }
+    if (cam>0) {
+      content2 += '\nBạn đã chọn Cam: ' + cam + ' ly';
+    }
+    if(select==3){
+      caRot += +prompt('Cà rốt có giá 15K, bạn cần số lượng bao nhiêu');
+    }
+    if (caRot>0) {
+      content2 += '\nBạn đã chọn Cà rốt: ' + caRot + ' ly';
+    }
+    if(select==4){
+      caChua += +prompt('Cà chua có giá 15K, bạn cần số lượng bao nhiêu');
+    }
+    if (caChua>0) {
+      content2 += '\nBạn đã chọn Cà chua: ' + caChua + ' ly';
+    }
+
   }
   while (
-    switch (select){
-      case 1:
-        cafe = +prompt("Cafe giá 10k, ")
-    }
+    select != 7
     );
 </script>
 </body>
