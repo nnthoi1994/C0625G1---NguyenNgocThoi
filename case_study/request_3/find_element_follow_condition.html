@@ -8,17 +8,17 @@
 <script>
   let a = [1, 2, 5, 7, 4, 2, 1];
   let b = [2, 1, 1, 10, 7, 9, 9, 4];
-document.write(missingValue(a,b));
+  document.write(missingValue(a, b));
 
-  function missingValue(a, b){
+  function missingValue(a, b) {
     let result = [];
     for (let i = 0; i < b.length; i++) {
-      if(!a.includes(b[i])&&!result.includes(b[i])){
+      if (!a.includes(b[i]) && !result.includes(b[i])) {
         result.push(b[i]);
       }
 
     }
-result.length===0?result="Không":result.sort((a,b)=> (a-b));
+    result.length === 0 ? result = 'Không' : result.sort((a, b) => (a - b));
     return result;
   }
 </script>

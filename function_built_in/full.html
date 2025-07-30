@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hàm tạo sẵn</title>
+</head>
+<body>
+<script>
+  function checkFib(x) {
+    let check = false;
+    let n = 0;
+    let n1 = 1;
+    let n2 = 0;
+    for (let i = 1; n2 <= x; i++) {
+      n2 = n1 + n;
+      n = n1;
+      n1 = n2;
+      if (x == n2 || x == 0) {
+        check = true;
+        return check;
+      }
+    }
+    return check;
+  }
+
+  //-------------------------------------
+
+  function isPrime(number) {
+    let check = true;
+    if (number < 2) {
+      check = false;
+    } else {
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          return check = false;
+        }
+      }
+      return check = true;
+    }
+  }
+
+//---------------------------------------
+
+  let n = +prompt('Nhập số lượng phần tử cần tính tổng(Số lượng phần tử nhỏ hơn hoặc bằng 50');
+  if (n < 1 || n > 50) {
+    alert('Vui lòng nhập đúng số lượng phần tử');
+  }
+  let arr = [];
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    arr.push(+prompt(`Phần tử thứ ${i}`));
+    if (isPrime(i)) {
+      sum += arr[i];
+    }
+  }
+</script>
+</body>
+</html>
