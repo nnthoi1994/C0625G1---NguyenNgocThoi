@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sắp xếp 2 phần tử liên tiếp</title>
+</head>
+<body>
+<script>
+
+  let arr = [1, 5, 6, 11, 9, 20, 8, 0, 8, 1];
+  alert(arrangeArr(arr));
+
+  function arrangeArr(arr) {
+    let arr2 = [];
+    for (i = 0; i < arr.length - 1; i++) {
+      if (arr[i] + arr[i + 1] == arr[i + 2]) {
+        arr2.push([arr[i], arr[i + 1]]);
+      }
+    }
+    arr2.sort((a, b) => ((a[0] + a[1])) - (b[0] + b[1]));
+    return arr2;
+  }
+</script>
+</body>
+</html>

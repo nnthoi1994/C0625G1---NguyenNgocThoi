@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra mảng theo điều kiện</title>
+</head>
+<body>
+<script>
+  let n;
+  do {
+    n = +prompt('Nhập số lượng phần tử là bội của 3 và nhỏ hơn hoặc bằng 15');
+  }
+  while (n % 3 !== 0 || n > 15|| n<0);
+
+  let arr = [];
+  let count = 0;
+  let check = n / 3;
+  for (let i = 0; i < n; i++) {
+    arr.push(+prompt(`Phần tử thứ ${i}`));
+  }
+  document.write(arr);
+
+  for (let j = 0; j < n; j++) {
+    if ((j + 1) % 3 === 0 && (arr[j - 2] ** 2 + arr[j - 1] ** 2) === arr[j] ** 2) {
+      count++;
+    }
+  }
+  if (count === check) {
+    alert('ok');
+  } else {
+    alert('no');
+  }
+
+</script>
+</body>
+</html>

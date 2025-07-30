@@ -36,7 +36,7 @@
     }
   }
 
-  let students = [new Student('HV-0001', 'Thới', 'C0625', 'thoi94@gmail.com', '01/01/2001', 1),
+  let infoContact = [new Student('HV-0001', 'Thới', 'C0625', 'thoi94@gmail.com', '01/01/2001', 1),
     new Student('HV-0002', 'Thành', 'C0625', 'thanh@gmail.com', '01/01/2002', 1),
     new Student('HV-0003', 'An', 'C0625', 'an@gmail.com', '01/01/2003', 1)
   ];
@@ -45,8 +45,8 @@
     let tableBody = document.getElementById('studentTableBody');
     tableBody.innerHTML = '';
 
-    for (let i = 0; i < students.length; i++) {
-      let student = students[i];
+    for (let i = 0; i < infoContact.length; i++) {
+      let student = infoContact[i];
       let row = `<tr>
       <td>${student.id}</td>
       <td>${student.name}</td>
@@ -74,8 +74,8 @@
   }
 
   function checkDup(id) {
-    for (let i = 0; i < students.length; i++) {
-      if (students[i].id === id) {
+    for (let i = 0; i < infoContact.length; i++) {
+      if (infoContact[i].id === id) {
         return true;
       }
     }
@@ -168,7 +168,7 @@
     }
 
     let newStudent = new Student(id, name, className, email, dob, module);
-    students.push(newStudent);
+    infoContact.push(newStudent);
     displayStudents();
   }
 
@@ -178,9 +178,9 @@
       alert('Không tìm thấy mã học viên');
       return;
     }
-    for (let i = 0; i < students.length; i++) {
-      if (students[i].id == codeDel) {
-        students.splice(i, 1);
+    for (let i = 0; i < infoContact.length; i++) {
+      if (infoContact[i].id == codeDel) {
+        infoContact.splice(i, 1);
         displayStudents();
       }
     }
@@ -193,41 +193,41 @@
       return;
     }
 
-    for (let i = 0; i < students.length; i++) {
-      if (students[i].id == codeEdit) {
-        let nameNew = prompt('Chỉnh sửa tên học viên (Không quá 50 kí tự)', students[i].name);
+    for (let i = 0; i < infoContact.length; i++) {
+      if (infoContact[i].id == codeEdit) {
+        let nameNew = prompt('Chỉnh sửa tên học viên (Không quá 50 kí tự)', infoContact[i].name);
         if (nameNew.length > 50 || nameNew == '') {
           alert('Bạn chưa nhập tên hoặc tên dài hơn 50 kí tự');
           return;
         }
 
-        let classNameNew = prompt('Chỉnh sửa tên lớp', students[i].className);
+        let classNameNew = prompt('Chỉnh sửa tên lớp', infoContact[i].className);
         while (classNameNew == '') {
           alert('Bạn chưa nhập tên lớp');
           classNameNew = prompt('chỉnh sửa tên lớp');
         }
 
-        let emailNew = prompt('chỉnh sửa email', students[i].email);
+        let emailNew = prompt('chỉnh sửa email', infoContact[i].email);
         while (emailNew == '') {
           alert('Bạn chưa chỉnh sửa email');
           emailNew = prompt('chỉnh sửa email');
         }
 
-        let dobNew = prompt('chỉnh sửa ngày tháng năm sinh học viên', students[i].dob);
+        let dobNew = prompt('chỉnh sửa ngày tháng năm sinh học viên', infoContact[i].dob);
         while (!checkDate(dobNew)) {
           dobNew = prompt('chỉnh sửa lại ngày tháng năm sinh học viên');
         }
 
-        let moduleNew = prompt('chỉnh sửa module (Từ 1 đến 6)', students[i].module);
+        let moduleNew = prompt('chỉnh sửa module (Từ 1 đến 6)', infoContact[i].module);
         while (moduleNew < 1 || moduleNew > 6 || isNaN(moduleNew)) {
           alert('Vui lòng chỉnh sửa đúng số module (1-6)');
           moduleNew = prompt('chỉnh sửa lại module');
         }
-        students[i].name = nameNew;
-        students[i].className = classNameNew;
-        students[i].email = emailNew;
-        students[i].dob = dobNew;
-        students[i].module = moduleNew;
+        infoContact[i].name = nameNew;
+        infoContact[i].className = classNameNew;
+        infoContact[i].email = emailNew;
+        infoContact[i].dob = dobNew;
+        infoContact[i].module = moduleNew;
         displayStudents();
       }
     }

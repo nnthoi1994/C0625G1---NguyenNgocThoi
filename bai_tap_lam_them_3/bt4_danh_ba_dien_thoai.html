@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh bạ điện thoại</title>
+</head>
+<button onclick="del()">Xóa số điện thoại</button>
+<table border="1">
+  <thead>
+  <tr>
+    <th>Số điện thoại</th>
+    <th>Tên chủ danh bạ</th>
+    <th>Địa chỉ</th>
+  </tr>
+  </thead>
+  <tbody id="comTableBody"></tbody>
+</table>
+<body>
+<script>
+  class Contact {
+    constructor(phoneNum, name, address) {
+      this.phoneNum = phoneNum;
+      this.name = name;
+      this.address = address;
+    }
+  }
+
+  let infoContact = [new Contact('123', 'Thới ', '322 Nguyễn Duy Trinh'),
+    new Contact('2112', 'Thành', '295 Nguyễn Tất Thành')
+  ];
+
+  function displayContact() {
+    let tableBody = document.getElementById('comTableBody');
+    tableBody.innerHTML = '';
+
+    for (let i = 0; i < infoContact.length; i++) {
+      let contact = infoContact[i];
+      let row = `<tr>
+      <td>${contact.phoneNum}</td>
+      <td>${contact.name}</td>
+      <td>${contact.address}</td>
+    </tr>`;
+      tableBody.innerHTML += row;
+    }
+  }
+
+  function checkDup(phoneNum) {
+    for (let i = 0; i < infoContact.length; i++) {
+      if (infoContact[i].phoneNum === phoneNum) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function del() {
+    let numPhoneDel = prompt('Nhập số điện thoại cần xóa');
+    if (!checkDup(numPhoneDel)) {
+      alert('Không tìm thấy số cần xóa');
+      return;
+    }
+    for (let i = 0; i < infoContact.length; i++) {
+      if (infoContact[i].phoneNum == numPhoneDel) {
+        infoContact.splice(i, 1);
+        displayContact();
+      }
+    }
+  }
+
+  displayContact();
+</script>
+</script>
+</body>
+</html>

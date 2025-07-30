@@ -64,7 +64,7 @@
     new Computer('Com2', 'Vostro', 'Dell', 2000000)
   ];
 
-  function displayComputers() {
+  function displayContact() {
     let tableBody = document.getElementById('comTableBody');
     tableBody.innerHTML = '';
 
@@ -107,16 +107,16 @@
 
     let newCom = new Computer(id, name, company, price);
     computers.push(newCom);
-    displayComputers();
+    displayContact();
   }
 
   function arrangePrice() {
     computers.sort((a, b) => (a.getPrice() - b.getPrice()));
-    displayComputers();
+    displayContact();
   }
 
 
-  displayComputers();
+  displayContact();
 </script>
 </body>
 </html>

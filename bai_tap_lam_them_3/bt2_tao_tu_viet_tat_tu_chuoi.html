@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tách chuỗi nếu 1 từ thì in ra 1 từ, nếu 2 từ trở lên thì in ra chữ đầu tiên của mỗi từ</title>
+  <title>Tạo từ viết tắt từ chuỗi</title>
 </head>
 <body>
 <script>
@@ -13,11 +13,15 @@
       for (let i = 0; i < nStr.length; i++) {
         nStr[i] = nStr[i][0];
       }
+      alert(nStr.join('').toUpperCase());
+      return nStr.join('').toUpperCase();
+    } else {
+      alert('Chuỗi chỉ có 1 từ nên không cần viết tắt');
     }
-    return nStr.join("").toUpperCase();
   }
-  let a = prompt("Nhập");
-  alert(checkString(a));
+
+  let a = prompt('Nhập');
+  checkString(a);
 </script>
 </body>
 </html>
