@@ -14,7 +14,7 @@
   let nuocLoc=0;
   let nuocDua=0;
   let content = 'Hãy chọn thức uống bằng cách gõ số theo menu bên dưới:\n' +
-    '1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua), 5(nước lọc), 6(nước dừa), 7(thoát gọi món)';
+    '1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua), 7(thoát gọi món)';
   let content2 = '';
   let sum=0;
   do {
@@ -32,25 +32,29 @@
       cam += +prompt('Cam có giá 12K, bạn cần số lượng bao nhiêu');
     }
     if (cam>0) {
-      content2 += '\nBạn đã chọn Cam: ' + cam + ' ly';
+      content2 += '\nBạn đã chọn Cam: ' + cam + ' ly------Tổng: '+cam*12 +".000";
     }
     if(select==3){
       caRot += +prompt('Cà rốt có giá 15K, bạn cần số lượng bao nhiêu');
     }
     if (caRot>0) {
-      content2 += '\nBạn đã chọn Cà rốt: ' + caRot + ' ly';
+      content2 += '\nBạn đã chọn Cà rốt: ' + caRot +  'ly------Tổng: '+caRot*15 +".000";
     }
     if(select==4){
       caChua += +prompt('Cà chua có giá 15K, bạn cần số lượng bao nhiêu');
     }
     if (caChua>0) {
-      content2 += '\nBạn đã chọn Cà chua: ' + caChua + ' ly';
+      content2 += '\nBạn đã chọn Cà chua: ' + caChua + 'ly------Tổng: ' + caChua*15 +".000";
+    }
+    if(select<1||select>7){
+      alert("Vui lòng chọn đúng số từ 1 đến 7")
     }
 
   }
   while (
     select != 7
     );
+  alert("Bạn cần thanh toán toán tổng cộng là: "+ sum + ".000")
 </script>
 </body>
 </html>
